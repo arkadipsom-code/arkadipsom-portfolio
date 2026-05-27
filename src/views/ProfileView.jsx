@@ -5,7 +5,7 @@ import { Award, BookOpen, Target, Download } from 'lucide-react';
 export default function ProfileView() {
   const handleDownload = () => {
     
-    const resumeUrl = '/Download_Resume.pdf'; 
+    const resumeUrl = '/resume.pdf'; 
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'Arkadip_Som_Resume.pdf';

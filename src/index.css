@@ -1,0 +1,74 @@
+/* 1. Import Inter from Google Fonts for Windows/Linux fallback support */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Canvas Configuration & Themes */
+  --background-dark-os: radial-gradient(
+    circle at center,
+    #27272a 0%,
+    #09090b 100%
+  );
+
+  /* High-contrast frosted glass overlays */
+  --color-glass-dark: rgba(15, 15, 17, 0.35);
+  --color-glass-window: rgba(20, 20, 23, 0.7);
+
+  /* Shadow glows to pop details off your dark desktop */
+  --shadow-folder-glow: 0 0 20px rgba(255, 255, 255, 0.15);
+  --shadow-window-glow:
+    0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* 2. Global OS Canvas Resets & Hybrid Font Stack */
+@layer base {
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #09090b;
+    user-select: none;
+
+    /* 🚀 Hybrid Font Stack: Matches Apple native UI, falls back gracefully to Inter */
+    font-family:
+      -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+      "Inter", sans-serif;
+  }
+}
+
+/* 3. Custom Glassmorphism System Layers */
+@layer utilities {
+  /* Frosted blur layer for folder icons and docks */
+  .glass-blur-md {
+    background-color: var(--color-glass-dark);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Deep backdrop blur tailored specifically for your main window apps */
+  .glass-blur-lg {
+    background-color: var(--color-glass-window);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  /* Minimalist macOS-style scrollbar track */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}

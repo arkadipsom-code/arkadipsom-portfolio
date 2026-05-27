@@ -1,0 +1,20 @@
+{
+  "categories": [
+    {
+      "id": "ml-ds",
+      "title": "Machine Learning & Data Science",
+      "skills": ["Python", "NumPy", "Pandas", "Matplotlib","Scikit-Learn", "PyTorch","Jupyter Notebook", "Google Colab"]
+    },
+    {
+      "id": "web-dev",
+      "title": "Web App Development & Tools",
+      "skills": ["HTML","CSS","JavaScript","React.js", "Bootstrap","Vite", "Tailwind CSS v4", "Streamlit Apps", "Git / GitHub"]
+    },
+    {
+      "id": "civil-eng",
+      "title": "Civil Engineering Disciplines",
+      "skills": ["Structural Analysis", "Geotechnical Engineering", "Water Resources Engineering", "Environmental Engineering", "Surveying", "Civil Engineering Materials", "Strength of Materials", "Fluid Mechanics"]
+    }
+    
+  ]
+}

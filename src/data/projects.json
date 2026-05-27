@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "id": "quant-engine",
+      "title": "Kolkata Water Infrastructure Forecast Dashboard",
+      "subtitle": "Kolkata's Water Infrastructure Interactive Dashoard",
+      "description": "This dashboard estimates future water demand and sewer infrastructure load for Kolkata using population forecasting and standard engineering design assumptions.",
+      "tags": ["Python", "Scikit-Learn", "Plotly", "Streamlit"],
+      "liveLink": "https://kolkata-water-infrastructure-forecast-dashboard.streamlit.app/",
+      "githubLink": "https://github.com/arkadipsom-code/Kolkata-Water-Infrastructure-Forecast"
+    }
+    
+  ]
+}

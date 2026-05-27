@@ -1,0 +1,21 @@
+{
+  "name": "Arkadip Som",
+  "title": "Full Stack Developer and ML Enthusiast",
+  "location": "Kolkata, West Bengal, India",
+  "bio": "Civil Engineering undergrad at IIEST Shibpur, bridging the gap between infrastructure and technology. As a full-stack web developer and machine learning enthusiast, I build smart, scalable web applications with data-driven backends. I'm passionate about leveraging AI to create sustainable, innovative solutions for real-world engineering challenges.",
+  "education": {
+    "degree": "B.Tech in Civil Engineering",
+    "status": "Pre-final Year Student",
+    "metrics": {
+      "cgpa": "7.88",
+      "secondary_school": "97.8%",
+      "higher_secondary_school": "87.8%"
+    }
+  },
+  "objectives": [
+    "Building scalable, responsive, and user-centric web applications using modern frameworks.",
+    "Integrating intelligent data models and predictive AI to solve complex, real-world problems.",
+    "Leveraging software engineering and data analytics to optimize sustainable engineering and environmental solutions.",
+    "Advancing technical expertise while preparing for future leadership and consulting roles at the intersection of business and technology."
+  ]
+}

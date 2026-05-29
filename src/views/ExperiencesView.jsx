@@ -65,7 +65,7 @@ export default function ExperiencesView() {
               {exp.tags.map((tag, tagIdx) => (
                 <span 
                   key={tagIdx} 
-                  className="text-[10px] text-neutral-400 bg-white/[0.02] border border-white/[0.04] px-2.5 py-0.5 rounded-md font-sans tracking-wide"
+                  className="text-[10px] text-neutral-400 bg-white/[0.02] border border-white/[0.04] px-2.5 py-0.5 rounded-md tracking-wide"
                 >
                   {tag}
                 </span>

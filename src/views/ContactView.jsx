@@ -70,7 +70,7 @@ export default function ContactView() {
         )}
       </form>
 
-      <div className="pt-4 border-t border-white/5 flex flex-wrap justify-center gap-x-6 gap-y-3 font-mono text-[11px] text-neutral-400">
+      <div className="pt-4 border-t border-white/5 flex flex-wrap justify-center gap-x-6 gap-y-3 text-[12px] text-neutral-400">
         <a href="mailto:arkadipsom@gmail.com" className="flex items-center gap-1.5 hover:text-white transition-colors">
           <Mail size={12} /> Email
         </a>

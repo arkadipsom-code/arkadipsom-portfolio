@@ -9,7 +9,7 @@ export default function ExperiencesView() {
       
       <div className="px-1">
         <h2 className="text-lg font-semibold text-white tracking-tight">Experiences</h2>
-        <p className="text-xs text-neutral-500 mt-0.5">Professional timelines and structural clearances.</p>
+        <p className="text-xs text-neutral-500 mt-0.5">Blueprint of work history</p>
       </div>
 
       

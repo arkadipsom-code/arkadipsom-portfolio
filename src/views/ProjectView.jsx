@@ -7,7 +7,7 @@ export default function ProjectView() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-300">
       <div>
         <h2 className="text-xl font-bold text-white tracking-tight">Project Blueprints & Deployments</h2>
-        <p className="text-xs text-neutral-400 mt-1">Select an application file to review technical execution blueprints.</p>
+        <p className="text-xs text-neutral-400 mt-1">Select an application file to review technical execution blueprints</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

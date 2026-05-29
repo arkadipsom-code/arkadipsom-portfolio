@@ -6,8 +6,8 @@ export default function Dock({setActiveWindow}) {
     { id: 'profile', icon: User, label: 'Profile' },
     { id: 'projects', icon: Code2, label: 'Projects' },
     { id: 'skills', icon: ShieldAlert, label: 'Skills' },
-    { id: 'contact', icon: Mail, label: 'Contact' },
     { id: 'experiences', icon: Briefcase, label: 'Experiences'},
+    { id: 'contact', icon: Mail, label: 'Contact' },
     ];
 
     return (

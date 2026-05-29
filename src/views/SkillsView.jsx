@@ -6,7 +6,7 @@ export default function SkillsView() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-300">
       <div>
         <h2 className="text-xl font-bold text-white tracking-tight">Technical Inventory</h2>
-        <p className="text-xs text-neutral-400 mt-1">Cross-functional domains combining analysis, data models, and programming mechanics.</p>
+        <p className="text-xs text-neutral-400 mt-1">Cross-functional domains combining analysis, data models, and programming mechanics</p>
       </div>
 
       <div className="space-y-4">

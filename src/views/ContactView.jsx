@@ -28,7 +28,7 @@ export default function ContactView() {
   return (
     <div className="max-w-xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-300">
       <div>
-        <h2 className="text-lg font-semibold text-white tracking-tight">Get In Touch</h2>
+        <h2 className="text-lg font-bold text-white tracking-tight">Get In Touch</h2>
         <p className="text-xs text-neutral-400 mt-1">Drop a message or find my links down below.</p>
       </div>
 

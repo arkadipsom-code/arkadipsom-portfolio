@@ -7,8 +7,8 @@ export default function FolderGrid({ setActiveWindow }) {
     { id: 'profile', title: 'Profile', icon: User },
     { id: 'projects', title: 'Projects', icon: Code2 },
     { id: 'skills', title: 'Skills', icon: ShieldAlert },
-    { id: 'contact', title: 'Contact', icon: Mail },
     { id: 'experiences', title: "Experiences", icon: Briefcase},
+    { id: 'contact', title: 'Contact', icon: Mail },
   ];
 
   return (

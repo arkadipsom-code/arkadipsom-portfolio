@@ -100,7 +100,7 @@ export default function DashboardWidgets({ setActiveWindow }) {
         <h1 className="text-4xl font-light tracking-tighter text-white/50 font-sans">
           {time.split(' ')[0]}
         </h1>
-        <p className="text-[9px] uppercase tracking-widest text-neutral-400 font-mono font-medium opacity-70">
+        <p className="text-[9px] uppercase tracking-widest text-neutral-400 font-medium opacity-70">
           {date}
         </p>
       </div>
@@ -111,11 +111,11 @@ export default function DashboardWidgets({ setActiveWindow }) {
           <div className="flex items-center gap-1.5">
             <CalendarIcon size={12} className="text-neutral-400" /> System Calendar
           </div>
-          <span className="text-neutral-500 text-[10px] lowercase">{currentMonthName} {currentYear}</span>
+          <span className="text-neutral-500 text-[10px] uppercase">{currentMonthName} {currentYear}</span>
         </div>
         
         {/* Quick Micro-Grid Matrix of Calendar Days */}
-        <div className="grid grid-cols-7 gap-1 text-center font-mono text-[9px] text-neutral-500 pt-1">
+        <div className="grid grid-cols-7 gap-1 text-center text-[9px] text-neutral-500 pt-1">
           {['S','M','T','W','T','F','S'].map((d, i) => (
             <div key={i} className="font-bold text-neutral-600">{d}</div>
           ))}

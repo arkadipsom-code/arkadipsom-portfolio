@@ -4,7 +4,7 @@ export default function FolderIcon({ id, title, icon: IconComponent, onClick }) 
   return (
     <div 
       onClick={onClick}
-      className="w-20 flex flex-col items-center justify-center gap-1.5 cursor-pointer group select-none text-center outline-none"
+      className="w-24 flex flex-col items-center justify-center gap-1.5 cursor-pointer group select-none text-center outline-none"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {

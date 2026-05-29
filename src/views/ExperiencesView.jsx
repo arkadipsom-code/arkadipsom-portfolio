@@ -39,7 +39,7 @@ export default function ExperiencesView() {
               </div>
 
               
-              <div className="flex sm:flex-col items-start sm:items-end gap-x-3 gap-y-0.5 text-[11px] font-sans text-neutral-500 mt-1 sm:mt-0 shrink-0">
+              <div className="flex sm:flex-col items-start sm:items-end gap-x-3 gap-y-0.5 text-[11px] text-neutral-500 mt-1 sm:mt-0 shrink-0">
                 <span className="flex items-center gap-1.5 font-medium">
                   <Calendar size={11} className="text-neutral-600" /> {exp.duration}
                 </span>

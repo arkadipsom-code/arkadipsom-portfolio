@@ -1,121 +1,77 @@
 import React, { useState } from 'react';
-
-// Shell & Structural Components
-import Desktop from './components/core/Desktop';
-import TopBar from './components/core/TopBar';
-import FolderGrid from './components/folders/FolderGrid';
-import Dock from './components/core/Dock';
-import Window from './components/core/Window';
-import DashboardWidgets from './components/core/DashboardWidgets';
-
-// Application Module Content Panels
 import ProfileView from './views/ProfileView';
-import ProjectView from './views/ProjectView'; 
+import ProjectView from './views/ProjectView';
+import ExperiencesView from './views/ExperiencesView';
 import SkillsView from './views/SkillsView';
 import ContactView from './views/ContactView';
-import ExperiencesView from './views/ExperiencesView';
 
 export default function App() {
-  // --- Core State Machine Drivers ---
-  const [activeWindow, setActiveWindow] = useState(null);
-  const [theme, setTheme] = useState('charcoal'); // 'charcoal' | 'navy' | 'emerald'
-  const [foldersVisible, setFoldersVisible] = useState(true);
-  const [widgetsVisible, setWidgetsVisible] = useState(true);
-  const [activeMenu, setActiveMenu] = useState(null); // null | 'finder' | 'view' | 'help'
+  const [activeTab, setActiveTab] = useState('home');
 
-  // --- Dynamic Window Router Switching Logic ---
-  const renderWindowContent = () => {
-    switch (activeWindow) {
-      case 'profile': 
-        return <ProfileView />;
-      case 'projects': 
-        return <ProjectView />; 
-      case 'skills': 
-        return <SkillsView />;
-      case 'contact': 
-        return <ContactView />;
-      case 'experiences': 
-        return <ExperiencesView />;
-      default: 
-        return <div className="p-4 font-mono text-xs text-neutral-400">Directory module initialization pending...</div>;
-    }
-  };
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' },
+  ];
 
-  // --- TopBar Dropdown Actions Handler Engine ---
-  const handleMenuAction = (actionType) => {
-    switch(actionType) {
-      case 'download_cv':
-        const link = document.createElement('a');
-        link.href = '/resume.pdf'; 
-        link.download = 'Arkadip_Som_Resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        break;
-        break;
-      case 'open_all':
-        setActiveWindow('profile');
-        break;
-      case 'restart':
-        setActiveWindow(null);
-        setTheme('charcoal');
-        setFoldersVisible(true);
-        setWidgetsVisible(true);
-        break;
-      case 'toggle_grid':
-        setFoldersVisible(prev => !prev);
-        break;
-      case 'toggle_widgets':
-        setWidgetsVisible(prev => !prev); 
-        break;
-      case 'theme_charcoal':
-        setTheme('charcoal');
-        break;
-      case 'theme_navy':
-        setTheme('navy');
-        break;
-      case 'theme_emerald':
-        setTheme('emerald');
-        break;
-      default:
-        break;
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'home': return <ProfileView />;
+      case 'projects': return <ProjectView />;
+      case 'experience': return <ExperiencesView />;
+      case 'skills': return <SkillsView />;
+      case 'contact': return <ContactView />;
+      default: return <ProfileView />;
     }
-    setActiveMenu(null);
   };
 
   return (
-    <Desktop theme={theme}>
-      {/* Persistent global header with context triggers */}
-      <TopBar 
-        activeMenu={activeMenu} 
-        setActiveMenu={setActiveMenu} 
-        handleMenuAction={handleMenuAction}
-        theme={theme}
-      />
+    <div className="min-h-screen w-full bg-white antialiased">
+      <div className="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-24 flex flex-col md:flex-row gap-12 md:gap-20 items-start">
+        
+        {/* Left Navigation Sidebar */}
+        <aside className="w-full md:w-52 flex-shrink-0">
+          <div className="md:sticky md:top-24 flex flex-col gap-6 md:gap-8">
+            
+            <div className="space-y-1">
+              <h1 className="text-xl font-extrabold tracking-tight text-black uppercase">
+                Arkadip Som
+              </h1>
+            </div>
+            
+            <nav className="flex flex-row md:flex-col gap-x-6 gap-y-4 flex-wrap border-b border-gray-100 pb-4 md:pb-0 md:border-none">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveTab(item.id)}
+                  className={`text-xs font-bold tracking-widest text-left uppercase transition-all duration-150 cursor-pointer outline-none focus:outline-none select-none relative pb-1 md:pb-0 ${
+                    activeTab === item.id
+                      ? 'text-black font-extrabold'
+                      : 'text-gray-400 hover:text-black'
+                  }`}
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
+                >
+                  {item.label}
+                  {activeTab === item.id && (
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black md:hidden" />
+                  )}
+                  {activeTab === item.id && (
+                    <span className="hidden md:inline-block ml-2 text-black font-extrabold">▪</span>
+                  )}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </aside>
 
-      {/* Global Backdrop Click Dismissal Engine for Dropdowns */}
-      {activeMenu && (
-        <div className="fixed inset-0 z-40 bg-transparent" onClick={() => setActiveMenu(null)} />
-      )}
+        {/* Right Content Area */}
+        <main className="flex-1 w-full pt-1 md:pt-0">
+          {renderContent()}
+        </main>
 
-      {/* 1. Desktop Folders Grid Layout Layer (Conditional Visibility) */}
-      {foldersVisible && <FolderGrid setActiveWindow={setActiveWindow} />}
-
-      {/* 2. Embedded Right-Side Widget Center & Terminal Pipeline */}
-      {widgetsVisible && <DashboardWidgets setActiveWindow={setActiveWindow} />}
-
-      {/* 3. Main Popup Window Viewport Container */}
-      {activeWindow && (
-        <Window 
-          title={activeWindow} 
-          onClose={() => setActiveWindow(null)}
-        >
-          {renderWindowContent()}
-        </Window>
-      )}
-
-      {/* 4. Bottom System Task Launcher App Dock */}
-      <Dock setActiveWindow={setActiveWindow} />
-    </Desktop>
+      </div>
+    </div>
   );
 }

@@ -25,12 +25,12 @@ export default function ContactView() {
     <div className="space-y-12 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-300">
       
       <div>
-        <h2 className="text-xl font-bold tracking-widest text-gray-800 uppercase">Get In Touch</h2>
+        <h2 className="text-2xl font-bold tracking-widest text-gray-800 uppercase">Get In Touch</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6 pt-2">
         <div className="space-y-1.5">
-          <label className="text-sm font-bold tracking-wider text-gray-900 uppercase">Name</label>
+          <label className="text-lg font-bold tracking-wider text-gray-900 uppercase">Name</label>
           <input 
             type="text" 
             name="name"
@@ -41,7 +41,7 @@ export default function ContactView() {
         </div>
         
         <div className="space-y-1.5">
-          <label className="text-sm font-bold tracking-wider text-gray-900 uppercase">Email Address</label>
+          <label className="text-lg font-bold tracking-wider text-gray-900 uppercase">Email Address</label>
           <input 
             type="email" 
             name="email"
@@ -52,7 +52,7 @@ export default function ContactView() {
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-sm font-bold tracking-wider text-gray-900 uppercase">Message</label>
+          <label className="text-lg font-bold tracking-wider text-gray-900 uppercase">Message</label>
           <textarea 
             name="message"
             rows="4" 
@@ -79,7 +79,7 @@ export default function ContactView() {
       <hr className="border-gray-100" />
 
       <div className="space-y-4">
-        <h4 className="text-sm font-bold tracking-widest text-gray-400 uppercase">Other Channels</h4>
+        <h4 className="text-base font-bold tracking-widest text-gray-400 uppercase">Other Channels</h4>
         <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm font-bold tracking-widest uppercase">
           <a href="mailto:arkadipsom@gmail.com" className="text-gray-500 hover:text-black transition-colors">
             Email

@@ -7,7 +7,7 @@ export default function ProjectView() {
     <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-300">
       
       <div>
-        <h2 className="text-xl font-bold tracking-widest text-gray-800 uppercase">Selected Projects</h2>
+        <h2 className="text-2xl font-bold tracking-widest text-gray-800 uppercase">Selected Projects</h2>
       </div>
 
       <div className="grid grid-cols-1 gap-y-12">
@@ -15,7 +15,7 @@ export default function ProjectView() {
           <div key={project.id} className="flex flex-col space-y-3 group">
             
             <div className="flex items-start justify-between gap-4">
-              <h3 className="text-base font-bold text-gray-900 group-hover:text-black transition-colors uppercase tracking-wide">
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-black transition-colors uppercase tracking-wide">
                 {project.title}
               </h3>
               
@@ -36,17 +36,17 @@ export default function ProjectView() {
               </div>
             </div>
 
-            <p className="text-xs font-bold tracking-wider text-gray-500">
+            <p className="text-sm font-bold tracking-wider text-gray-500">
               {project.subtitle}
             </p>
 
-            <p className="text-sm text-gray-700 leading-relaxed font-normal">
+            <p className="text-lg text-gray-700 leading-relaxed font-normal">
               {project.description}
             </p>
 
             <div className="flex flex-wrap gap-2 pt-2">
               {project.tags.map((tag, idx) => (
-                <span key={idx} className="text-xs font-medium text-gray-600 bg-gray-50 px-2.5 py-1 rounded border border-gray-200/60">
+                <span key={idx} className="text-xs font-medium text-gray-800 bg-gray-50 px-2.5 py-1 rounded border border-gray-200/60">
                   {tag}
                 </span>
               ))}

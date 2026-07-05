@@ -7,7 +7,7 @@ export default function SkillsView() {
       
       {/* View Header Block */}
       <div>
-        <h2 className="text-xl font-bold tracking-widest text-gray-800 uppercase">Technical Inventory</h2>
+        <h2 className="text-2xl font-bold tracking-widest text-gray-800 uppercase">Technical Inventory</h2>
       </div>
 
       {/* Skills Layout Matrix */}
@@ -17,7 +17,7 @@ export default function SkillsView() {
             
             {/* Left Column: Category Label */}
             <div className="sm:col-span-1 pt-0.5">
-              <h3 className="text-sm font-bold tracking-wider text-gray-900 uppercase">
+              <h3 className="text-lg font-bold tracking-wider text-gray-900 uppercase">
                 {cat.title}
               </h3>
             </div>
@@ -28,7 +28,7 @@ export default function SkillsView() {
                 {cat.skills.map((skill, index) => (
                   <span 
                     key={index}
-                    className="text-xs font-medium text-gray-700 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded transition-colors duration-200 hover:bg-gray-100"
+                    className="text-sm font-medium text-gray-800 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded transition-colors duration-200 hover:bg-gray-100"
                   >
                     {skill}
                   </span>

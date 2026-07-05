@@ -36,7 +36,7 @@ export default function App() {
           <div className="md:sticky md:top-24 flex flex-col gap-6 md:gap-8">
             
             <div className="space-y-1">
-              <h1 className="text-xl font-extrabold tracking-tight text-black uppercase">
+              <h1 className="text-3xl font-extrabold tracking-tight text-black uppercase">
                 Arkadip Som
               </h1>
             </div>
@@ -46,7 +46,7 @@ export default function App() {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`text-xs font-bold tracking-widest text-left uppercase transition-all duration-150 cursor-pointer outline-none focus:outline-none select-none relative pb-1 md:pb-0 ${
+                  className={`text-sm font-bold tracking-widest text-left uppercase transition-all duration-150 cursor-pointer outline-none focus:outline-none select-none relative pb-1 md:pb-0 ${
                     activeTab === item.id
                       ? 'text-black font-extrabold'
                       : 'text-gray-400 hover:text-black'

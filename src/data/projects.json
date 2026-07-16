@@ -38,9 +38,9 @@
     },
     {
       "id": "crispurl",
-      "title": "CrispURL | Low-Latency Scalable Link Shortener",
+      "title": "CrispURL - Low-Latency Scalable Link Shortener",
       "subtitle": "High-performance URL shortener and redirect engine leveraging Base62 compression",
-      "description": "A full-stack, decoupled URL shortening and redirection platform featuring an    event-driven Node.js/Express backend, a vanilla JS/Tailwind CSS frontend, and a serverless Neon   PostgreSQL database. The system utilizes an atomic database transaction model to map auto-incrementing     integer IDs to unique Base62-encoded short codes, optimized with B-Tree indexing to ensure $O(\\log N)    $ sub-millisecond route resolution.",
+      "description": "A full-stack, decoupled URL shortening and redirection platform featuring an    event-driven Node.js/Express backend, a vanilla JS/Tailwind CSS frontend, and a serverless Neon   PostgreSQL database. The system utilizes an atomic database transaction model to map auto-incrementing     integer IDs to unique Base62-encoded short codes, optimized with B-Tree indexing to ensure O(log N)     sub-millisecond route resolution.",
       "tags": ["Node.js", "Express.js", "PostgreSQL", "JavaScript", "Tailwind CSS"],
       "liveLink": "https://crisp-url-shortener.vercel.app/",
       "githubLink": "https://github.com/arkadipsom-code/crispURL-shortener"

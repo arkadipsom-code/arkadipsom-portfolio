@@ -61,12 +61,12 @@ export default function ProfileView() {
             <div className="text-2xl font-extrabold text-black mt-1">{profileData.education.metrics.cgpa}</div>
           </div>
           <div>
-            <div className="text-sm text-gray-500 font-bold tracking-wider uppercase">10th Grade</div>
-            <div className="text-2xl font-extrabold text-black mt-1">{profileData.education.metrics.secondary_school}</div>
-          </div>
-          <div>
             <div className="text-sm text-gray-500 font-bold tracking-wider uppercase">12th Grade</div>
             <div className="text-2xl font-extrabold text-black mt-1">{profileData.education.metrics.higher_secondary_school}</div>
+          </div>
+          <div>
+            <div className="text-sm text-gray-500 font-bold tracking-wider uppercase">10th Grade</div>
+            <div className="text-2xl font-extrabold text-black mt-1">{profileData.education.metrics.secondary_school}</div>
           </div>
         </div>
       </div>

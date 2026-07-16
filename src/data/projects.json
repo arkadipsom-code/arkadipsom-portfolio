@@ -1,14 +1,49 @@
 {
   "projects": [
     {
-      "id": "quant-engine",
+      "id": "kol-water-infra-dashboard",
       "title": "Kolkata Water Infrastructure Forecast Dashboard",
-      "subtitle": "Kolkata's Water Infrastructure Interactive Dashoard",
-      "description": "This dashboard estimates future water demand and sewer infrastructure load for Kolkata using population forecasting and standard engineering design assumptions.",
+      "subtitle": "An engineering dashboard quantifying municipal water demand and sewer network capacity through decadal demographic modeling",
+      "description": "An interactive forecasting platform designed to project Kolkata's municipal water     demands and sewerage infrastructure loads up to the mid-21st century. By integrating demographic    forecasting methods—including Arithmetic, Geometric, and Incremental Increase formulations with CPHEEO engineering design guidelines, the dashboard calculates domestic-commercial consumption requirements, wastewater generation, and peak wet-weather hydraulic capacities for strategic urban utility planning.",
       "tags": ["Python", "Scikit-Learn", "Plotly", "Streamlit"],
       "liveLink": "https://kolkata-water-infrastructure-forecast-dashboard.streamlit.app/",
       "githubLink": "https://github.com/arkadipsom-code/Kolkata-Water-Infrastructure-Forecast"
+    },
+    {
+      "id": "texify",
+      "title": "Texify",
+      "subtitle": "Automated React & Node.js resume builder compiling raw LaTeX to PDF",
+      "description": "An automated resume builder engineered for IIEST Shibpur students to bypass LaTeX syntax debugging. It features a reactive, dual-pane React frontend with smart UX auto-bullet injection, Google OAuth domain-locking to college emails, and a Node.js/Express backend that compiles structured JSON payloads into high-quality, ATS-friendly PDFs on the fly.",
+      "tags": ["React.js", "Node.js", "Express", "LaTeX", "Google OAuth"],
+      "liveLink": "https://texify-nine.vercel.app/",
+      "githubLink": "https://github.com/arkadipsom-code/Texify"
+    },
+    {
+      "id": "india-climate-resilience",
+      "title": "India's Climate Resilience & Strategic Capital Allocation Platform",
+      "subtitle": "Predictive ML-driven climate risk forecasting and dynamic budget optimization dashboard",
+      "description": "An empirical analytical dashboard designed to quantify long-range urban climate risk    and optimize infrastructure fund allocation across major Indian metropolitan areas. The platform uses   linear regression models to forecast temperature drift and extreme weather event frequencies up to     2040, then dynamically routes adaptation fund pools (up to 20,000 Crores) using an algorithmic capital    prioritization matrix.",
+      "tags": ["Python", "Scikit-Learn", "Streamlit", "Pandas", "Plotly"],
+      "liveLink": "https://india-climate-resilience-dashboard.streamlit.app/",
+      "githubLink": "https://github.com/arkadipsom-code/India-Climate-Resilience-Dashboard"
+    },
+    {
+      "id": "weather-temperature-prediction",
+      "title": "Climatic Analytics & Temperature Forecasting Engine",
+      "subtitle": "High-precision RandomForest regression pipeline predicting global average temperatures",
+      "description": "An end-to-end supervised machine learning regression pipeline engineered to model     non-linear climatic patterns and predict global average temperatures. Leveraging a 3,190+ sample    dataset, the architecture integrates seasonal feature extraction, standard scaling, and SelectKBest   feature selection into a rigorous Scikit-Learn pipeline to prevent data leakage, optimizing a    RandomForestRegressor to achieve a 0.981 test R² score and 0.171 RMSE.",
+      "tags": ["Python", "Scikit-Learn", "Pandas", "Random Forest", "Matplotlib"],
+      "liveLink": "",
+      "githubLink": "https://github.com/arkadipsom-code/Weather-Temperature-Prediction-ML"
+    },
+    {
+      "id": "crispurl",
+      "title": "CrispURL | Low-Latency Scalable Link Shortener",
+      "subtitle": "High-performance URL shortener and redirect engine leveraging Base62 compression",
+      "description": "A full-stack, decoupled URL shortening and redirection platform featuring an    event-driven Node.js/Express backend, a vanilla JS/Tailwind CSS frontend, and a serverless Neon   PostgreSQL database. The system utilizes an atomic database transaction model to map auto-incrementing     integer IDs to unique Base62-encoded short codes, optimized with B-Tree indexing to ensure $O(\\log N)    $ sub-millisecond route resolution.",
+      "tags": ["Node.js", "Express.js", "PostgreSQL", "JavaScript", "Tailwind CSS"],
+      "liveLink": "https://crisp-url-shortener.vercel.app/",
+      "githubLink": "https://github.com/arkadipsom-code/crispURL-shortener"
     }
-    
   ]
 }

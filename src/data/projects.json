@@ -14,7 +14,7 @@
       "title": "Texify",
       "subtitle": "Automated React & Node.js resume builder compiling raw LaTeX to PDF",
       "description": "An automated resume builder engineered for IIEST Shibpur students to bypass LaTeX syntax debugging. It features a reactive, dual-pane React frontend with smart UX auto-bullet injection, Google OAuth domain-locking to college emails, and a Node.js/Express backend that compiles structured JSON payloads into high-quality, ATS-friendly PDFs on the fly.",
-      "tags": ["React.js", "Node.js", "Express", "LaTeX", "Google OAuth"],
+      "tags": ["React.js", "Node.js", "Express.js", "PostgreSQL", "Tailwind CSS", "LaTeX", "Google OAuth"],
       "liveLink": "https://texify-nine.vercel.app/",
       "githubLink": "https://github.com/arkadipsom-code/Texify"
     },

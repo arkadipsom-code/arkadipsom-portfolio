@@ -27,19 +27,19 @@ export default function ProfileView() {
       title: 'Technical',
       description: 'Focused on software engineering, full-stack web development, and data science projects.',
       filename: 'Arkadip_Som_Tech_Resume.pdf',
-      fileUrl: '/resumes/tech-resume.pdf',
+      fileUrl: '/resumes/accenture-intern-resume.pdf',
     },
     {
       title: 'Business Strategy & Consulting',
       description: 'Focused on corporate strategy, operations, and business transformation.',
       filename: 'Arkadip_Som_Consulting_Resume.pdf',
-      fileUrl: '/resumes/consulting-resume.pdf',
+      fileUrl: '/resumes/resume-consultancy-v3.pdf.pdf',
     },
     {
       title: 'Core Civil Engineering',
       description: 'Focused on infrastructure projects, project management, and fundamental civil engineering principles.',
       filename: 'Arkadip_Som_Civil_Resume.pdf',
-      fileUrl: '/resumes/civil-resume.pdf',
+      fileUrl: '/resumes/resume-nhai-v2.pdf',
     },
   ];
 

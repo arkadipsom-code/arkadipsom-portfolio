@@ -10,7 +10,7 @@ import ContactView from './views/ContactView';
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
+    return localStorage.getItem('theme') !== 'light';
   });
 
   // Dark Mode Persistence

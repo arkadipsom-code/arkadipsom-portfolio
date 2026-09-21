@@ -9,22 +9,26 @@ import ContactView from './views/ContactView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
+  
+  // Defaults to Dark Mode unless explicitly set to 'light'
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('theme') !== 'light';
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme === 'dark' : true;
   });
 
-  // Dark Mode Persistence
+  // Dark Mode Class Sync & LocalStorage Persistence
   useEffect(() => {
+    const root = document.documentElement;
     if (darkMode) {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
 
-  // Browser Back Button Navigation Handling
+  // Browser Back/Forward Button State Sync
   useEffect(() => {
     const handlePopState = (event) => {
       if (event.state && event.state.tab) {
@@ -57,18 +61,25 @@ export default function App() {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'home': return <ProfileView />;
-      case 'projects': return <ProjectView />;
-      case 'experience': return <ExperiencesView />;
-      case 'skills': return <SkillsView />;
-      case 'contact': return <ContactView />;
-      default: return <ProfileView />;
+      case 'home':
+        return <ProfileView />;
+      case 'projects':
+        return <ProjectView />;
+      case 'experience':
+        return <ExperiencesView />;
+      case 'skills':
+        return <SkillsView />;
+      case 'contact':
+        return <ContactView />;
+      default:
+        return <ProfileView />;
     }
   };
 
   return (
     <div className="min-h-screen w-full bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased transition-colors duration-200">
       <Analytics />
+      
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-24 flex flex-col md:flex-row gap-12 md:gap-20 items-start">
         
         {/* Left Navigation Sidebar */}
@@ -81,9 +92,9 @@ export default function App() {
               </h1>
               {/* Dark Mode Toggle */}
               <button
-                onClick={() => setDarkMode(!darkMode)}
+                onClick={() => setDarkMode((prev) => !prev)}
                 aria-label="Toggle Theme"
-                className="p-2 rounded-lg text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+                className="p-2 rounded-lg text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors cursor-pointer"
               >
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>

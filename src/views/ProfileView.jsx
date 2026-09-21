@@ -22,11 +22,15 @@ export default function ProfileView() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
   const [views, setViews] = useState(null);
 
-  // Fetch page visit count natively via JSON API
+  // Fetch page visit count via counterapi.com
   useEffect(() => {
-    fetch('https://api.counterapi.dev/v1/arkadipsom-portfolio/visits/up')
+    fetch('https://counterapi.com/api/v1/arkadipsom-portfolio/visits/up')
       .then((res) => res.json())
-      .then((data) => setViews(data.count))
+      .then((data) => {
+        // Handles counterapi.com response payload smoothly
+        const count = data?.data?.up || data?.up || data?.count;
+        if (count !== undefined) setViews(count);
+      })
       .catch(() => setViews(null));
   }, []);
 

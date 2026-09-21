@@ -22,14 +22,14 @@ export default function ProfileView() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
   const [views, setViews] = useState(null);
 
-  // Fetch page visit count via counterapi.com
+  // Fetch and increment page visit count via CountAPI
   useEffect(() => {
-    fetch('https://counterapi.com/api/v1/arkadipsom-portfolio/visits/up')
+    fetch('https://api.countapi.xyz/hit/arkadipsom-portfolio/visits')
       .then((res) => res.json())
       .then((data) => {
-        // Handles counterapi.com response payload smoothly
-        const count = data?.data?.up || data?.up || data?.count;
-        if (count !== undefined) setViews(count);
+        if (data && typeof data.value === 'number') {
+          setViews(data.value);
+        }
       })
       .catch(() => setViews(null));
   }, []);

@@ -84,48 +84,46 @@ export default function ProfileView() {
           </div>
 
           {/* Social Icons & Visitors Badge Row */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a 
-              href="https://github.com/arkadipsom-code" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
-            >
-              <GithubIcon size={18} />
-            </a>
-            <a 
-              href="https://linkedin.com/in/arkadip-som" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
-            >
-              <LinkedinIcon size={18} />
-            </a>
-            <a 
-              href="mailto:arkadipsom.official@gmail.com" 
-              aria-label="Email"
-              className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
-            >
-              <Mail size={18} />
-            </a>
+<div className="flex flex-wrap items-center gap-4 pt-2">
+  <a 
+    href="https://github.com/arkadipsom-code" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+    className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
+  >
+    <GithubIcon size={18} />
+  </a>
+  <a 
+    href="https://linkedin.com/in/arkadip-som" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
+  >
+    <LinkedinIcon size={18} />
+  </a>
+  <a 
+    href="mailto:arkadipsom.official@gmail.com" 
+    aria-label="Email"
+    className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
+  >
+    <Mail size={18} />
+  </a>
 
-          
-            {/* Minimalist Visitors Counter Badge */}
-<div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-lg text-xs font-mono text-gray-600 dark:text-gray-400">
-  <Eye size={14} className="text-gray-500 dark:text-gray-400" />
-  <img 
-    src="https://img.shields.io/badge/dynamic/json?maxAge=2592000&label=views&query=value&url=https%3A%2F%2Fapi.countapi.xyz%2Fhit%2Farkadipsom.vercel.app%2Fvisits&style=flat-square&color=black&labelColor=111111" 
-    alt="Visitor Count"
-    className="h-4 opacity-90 dark:invert"
-  />
+  {/* Reliable Visitors Counter Badge */}
+  <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-lg text-xs font-mono text-gray-600 dark:text-gray-400">
+    <Eye size={14} className="text-gray-500 dark:text-gray-400" />
+    <img 
+      src="https://hits.webchange.life/badge?property=arkadipsom.vercel.app&label=views" 
+      alt="Visitor Count"
+      className="h-4 dark:invert opacity-80"
+    />
+  </div>
 </div>
           </div>
 
         </div>
-
-      </div>
 
       <hr className="border-gray-100 dark:border-gray-800" />
 

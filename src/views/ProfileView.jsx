@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import profileData from '../data/profile.json';
-import { ArrowDownToLine, Mail, FileText, X, Eye } from 'lucide-react';
+import { ArrowDownToLine, Mail, FileText, X } from 'lucide-react';
 
 // Custom Brand Icon SVGs to bypass lucide-react brand icon export issues
 const GithubIcon = ({ size = 18 }) => (
@@ -20,19 +20,6 @@ const LinkedinIcon = ({ size = 18 }) => (
 
 export default function ProfileView() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
-  const [views, setViews] = useState(null);
-
-  // Fetch and increment page visit count via CountAPI
-  useEffect(() => {
-    fetch('https://api.countapi.xyz/hit/arkadipsom-portfolio/visits')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && typeof data.value === 'number') {
-          setViews(data.value);
-        }
-      })
-      .catch(() => setViews(null));
-  }, []);
 
   // Multi-Domain Resume Variants
   const resumeOptions = [
@@ -96,7 +83,7 @@ export default function ProfileView() {
             </p>
           </div>
 
-          {/* Social Icons & Visitors Badge Row */}
+          {/* Social Icons Row */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a 
               href="https://github.com/arkadipsom-code" 
@@ -123,12 +110,6 @@ export default function ProfileView() {
             >
               <Mail size={18} />
             </a>
-
-            {/* Native Clean Visitors Counter */}
-            <div className="inline-flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-lg text-xs font-mono text-gray-700 dark:text-gray-300">
-              <Eye size={14} className="text-gray-500 dark:text-gray-400" />
-              <span>{views !== null ? `${views} views` : 'views'}</span>
-            </div>
           </div>
 
         </div>

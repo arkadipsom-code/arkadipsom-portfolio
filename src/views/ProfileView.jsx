@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import profileData from '../data/profile.json';
-import { ArrowDownToLine, Mail, FileText, X } from 'lucide-react';
+import { ArrowDownToLine, Mail, FileText, X, Eye } from 'lucide-react';
 
 // Custom Brand Icon SVGs to bypass lucide-react brand icon export issues
 const GithubIcon = ({ size = 18 }) => (
@@ -83,8 +83,8 @@ export default function ProfileView() {
             </p>
           </div>
 
-          {/* Social Icons on Home Page */}
-          <div className="flex items-center gap-4 pt-2">
+          {/* Social Icons & Visitors Badge Row */}
+          <div className="flex flex-wrap items-center gap-4 pt-2">
             <a 
               href="https://github.com/arkadipsom-code" 
               target="_blank" 
@@ -110,6 +110,16 @@ export default function ProfileView() {
             >
               <Mail size={18} />
             </a>
+
+            {/* Minimalist Visitors Counter Badge */}
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-lg text-xs font-mono text-gray-600 dark:text-gray-400">
+              <Eye size={14} className="text-gray-500 dark:text-gray-400" />
+              <img 
+                src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Farkadipsom.vercel.app&count_bg=%2300000000&title_bg=%2300000000&icon=&icon_color=%23E7E7E7&title=views&edge_flat=true" 
+                alt="Visitor Count"
+                className="h-4 dark:invert opacity-80"
+              />
+            </div>
           </div>
 
         </div>

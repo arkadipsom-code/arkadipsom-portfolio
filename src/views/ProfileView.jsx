@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import profileData from '../data/profile.json';
 import { ArrowDownToLine, Mail, FileText, X, Eye } from 'lucide-react';
 
@@ -20,6 +20,15 @@ const LinkedinIcon = ({ size = 18 }) => (
 
 export default function ProfileView() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
+  const [views, setViews] = useState(null);
+
+  // Fetch page visit count natively via JSON API
+  useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/arkadipsom-portfolio/visits/up')
+      .then((res) => res.json())
+      .then((data) => setViews(data.count))
+      .catch(() => setViews(null));
+  }, []);
 
   // Multi-Domain Resume Variants
   const resumeOptions = [
@@ -84,46 +93,43 @@ export default function ProfileView() {
           </div>
 
           {/* Social Icons & Visitors Badge Row */}
-<div className="flex flex-wrap items-center gap-4 pt-2">
-  <a 
-    href="https://github.com/arkadipsom-code" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    aria-label="GitHub"
-    className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
-  >
-    <GithubIcon size={18} />
-  </a>
-  <a 
-    href="https://linkedin.com/in/arkadip-som" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
-  >
-    <LinkedinIcon size={18} />
-  </a>
-  <a 
-    href="mailto:arkadipsom.official@gmail.com" 
-    aria-label="Email"
-    className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
-  >
-    <Mail size={18} />
-  </a>
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <a 
+              href="https://github.com/arkadipsom-code" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
+            >
+              <GithubIcon size={18} />
+            </a>
+            <a 
+              href="https://linkedin.com/in/arkadip-som" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
+            >
+              <LinkedinIcon size={18} />
+            </a>
+            <a 
+              href="mailto:arkadipsom.official@gmail.com" 
+              aria-label="Email"
+              className="p-2 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
+            >
+              <Mail size={18} />
+            </a>
 
-  {/* Reliable Visitors Counter Badge */}
-  <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-lg text-xs font-mono text-gray-600 dark:text-gray-400">
-    <Eye size={14} className="text-gray-500 dark:text-gray-400" />
-    <img 
-      src="https://hits.webchange.life/badge?property=arkadipsom.vercel.app&label=views" 
-      alt="Visitor Count"
-      className="h-4 dark:invert opacity-80"
-    />
-  </div>
-</div>
+            {/* Native Clean Visitors Counter */}
+            <div className="inline-flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-lg text-xs font-mono text-gray-700 dark:text-gray-300">
+              <Eye size={14} className="text-gray-500 dark:text-gray-400" />
+              <span>{views !== null ? `${views} views` : 'views'}</span>
+            </div>
           </div>
 
         </div>
+
+      </div>
 
       <hr className="border-gray-100 dark:border-gray-800" />
 

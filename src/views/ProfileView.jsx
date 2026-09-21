@@ -111,15 +111,16 @@ export default function ProfileView() {
               <Mail size={18} />
             </a>
 
+          
             {/* Minimalist Visitors Counter Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-lg text-xs font-mono text-gray-600 dark:text-gray-400">
-              <Eye size={14} className="text-gray-500 dark:text-gray-400" />
-              <img 
-                src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Farkadipsom.vercel.app&count_bg=%2300000000&title_bg=%2300000000&icon=&icon_color=%23E7E7E7&title=views&edge_flat=true" 
-                alt="Visitor Count"
-                className="h-4 dark:invert opacity-80"
-              />
-            </div>
+<div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 rounded-lg text-xs font-mono text-gray-600 dark:text-gray-400">
+  <Eye size={14} className="text-gray-500 dark:text-gray-400" />
+  <img 
+    src="https://img.shields.io/badge/dynamic/json?maxAge=2592000&label=views&query=value&url=https%3A%2F%2Fapi.countapi.xyz%2Fhit%2Farkadipsom.vercel.app%2Fvisits&style=flat-square&color=black&labelColor=111111" 
+    alt="Visitor Count"
+    className="h-4 opacity-90 dark:invert"
+  />
+</div>
           </div>
 
         </div>

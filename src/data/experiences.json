@@ -7,10 +7,24 @@
     "location": "Dankuni, Hooghly",
     "facility": "UltraTech Cement",
     "highlights": [
-      "Evaluated quality maintenance practices per BIS cement standards IS 269:2015, IS 1489 (Part 1 & 2):2015, and IS 455 (Part 1):2015.",
-      "Conducted industrial field operations at UltraTech Cement to observe structural quality control and rigorous standardization procedures in practice.",
-      "Performed physical cement engineering quality tests (fineness, setting time, strength) and analyzed data results against BIS acceptance criteria matrices to isolate operational compliance gaps."
+      "Led a 3-member team selected nationally to evaluate industrial quality compliance, coordinating stakeholder interviews and site audits directly with BIS Kolkata leadership and UltraTech Cement Dankuni plant heads.",
+      "Audited cement manufacturing workflows at UltraTech Cement plant, verifying live testing procedures against mandated Indian Standards (IS 269, IS 1489, IS 455); identified 1 critical fly-ash process deviation and mapped 5 internal quality benchmarks maintained beyond baseline code requirements.",
+      "Synthesized complex plant test data and executive interviews into a 100-page compliance report, surfacing 10 compliance framework gaps and 15 actionable modernization recommendations submitted for BIS review."
     ],
     "tags": ["Quality Standards", "Material Mechanics", "Industrial Compliance"]
+  },
+  {
+    "id": "gssoc-2026",
+    "role": "Open Source Contributor",
+    "company": "GirlScript Summer of Code (GSSoC)",
+    "duration": "May 2026 – Jul 2026",
+    "location": "Remote",
+    "facility": "GirlScript Foundation",
+    "highlights": [
+      "Selected among top nationwide applicants as an Open Source Contributor for GSSoC '26, engaging in large-scale collaborative software development workflows.",
+      "Participated in developer onboarding, codebases analysis, and issue triage across community-driven software repositories to prepare for production-level contributions.",
+      "Collaborated with project maintainers and global developer communities through Git/GitHub workflows, code reviews, and open-source documentation standards."
+    ],
+    "tags": ["Open Source", "Git & GitHub", "Software Engineering"]
   }
 ]

@@ -1,49 +1,157 @@
-{
-  "projects": [
-    {
-      "id": "kol-water-infra-dashboard",
-      "title": "Kolkata Water Infrastructure Forecast Dashboard",
-      "subtitle": "An engineering dashboard quantifying municipal water demand and sewer network capacity through decadal demographic modeling",
-      "description": "An interactive forecasting platform designed to project Kolkata's municipal water     demands and sewerage infrastructure loads up to the mid-21st century. By integrating demographic    forecasting methods—including Arithmetic, Geometric, and Incremental Increase formulations with CPHEEO engineering design guidelines, the dashboard calculates domestic-commercial consumption requirements, wastewater generation, and peak wet-weather hydraulic capacities for strategic urban utility planning.",
-      "tags": ["Python", "Scikit-Learn", "Plotly", "Streamlit"],
-      "liveLink": "https://kolkata-water-infrastructure-forecast-dashboard.streamlit.app/",
-      "githubLink": "https://github.com/arkadipsom-code/Kolkata-Water-Infrastructure-Forecast"
-    },
-    {
-      "id": "texify",
-      "title": "Texify",
-      "subtitle": "Automated React & Node.js resume builder compiling raw LaTeX to PDF",
-      "description": "An automated resume builder engineered for IIEST Shibpur students to bypass LaTeX syntax debugging. It features a reactive, dual-pane React frontend with smart UX auto-bullet injection, Google OAuth domain-locking to college emails, and a Node.js/Express backend that compiles structured JSON payloads into high-quality, ATS-friendly PDFs on the fly.",
-      "tags": ["React.js", "Node.js", "Express.js", "PostgreSQL", "Tailwind CSS", "LaTeX", "Google OAuth"],
-      "liveLink": "https://texify-nine.vercel.app/",
-      "githubLink": "https://github.com/arkadipsom-code/Texify"
-    },
-    {
-      "id": "india-climate-resilience",
-      "title": "India's Climate Resilience & Strategic Capital Allocation Platform",
-      "subtitle": "Predictive ML-driven climate risk forecasting and dynamic budget optimization dashboard",
-      "description": "An empirical analytical dashboard designed to quantify long-range urban climate risk    and optimize infrastructure fund allocation across major Indian metropolitan areas. The platform uses   linear regression models to forecast temperature drift and extreme weather event frequencies up to     2040, then dynamically routes adaptation fund pools (up to 20,000 Crores) using an algorithmic capital    prioritization matrix.",
-      "tags": ["Python", "Scikit-Learn", "Streamlit", "Pandas", "Plotly"],
-      "liveLink": "https://india-climate-resilience-dashboard.streamlit.app/",
-      "githubLink": "https://github.com/arkadipsom-code/India-Climate-Resilience-Dashboard"
-    },
-    {
-      "id": "weather-temperature-prediction",
-      "title": "Climatic Analytics & Temperature Forecasting Engine",
-      "subtitle": "High-precision RandomForest regression pipeline predicting global average temperatures",
-      "description": "An end-to-end supervised machine learning regression pipeline engineered to model     non-linear climatic patterns and predict global average temperatures. Leveraging a 3,190+ sample    dataset, the architecture integrates seasonal feature extraction, standard scaling, and SelectKBest   feature selection into a rigorous Scikit-Learn pipeline to prevent data leakage, optimizing a    RandomForestRegressor to achieve a 0.981 test R² score and 0.171 RMSE.",
-      "tags": ["Python", "Scikit-Learn", "Pandas", "Random Forest", "Matplotlib"],
-      "liveLink": "",
-      "githubLink": "https://github.com/arkadipsom-code/Weather-Temperature-Prediction-ML"
-    },
-    {
-      "id": "crispurl",
-      "title": "CrispURL - Low-Latency Scalable Link Shortener",
-      "subtitle": "High-performance URL shortener and redirect engine leveraging Base62 compression",
-      "description": "A full-stack, decoupled URL shortening and redirection platform featuring an    event-driven Node.js/Express backend, a vanilla JS/Tailwind CSS frontend, and a serverless Neon   PostgreSQL database. The system utilizes an atomic database transaction model to map auto-incrementing     integer IDs to unique Base62-encoded short codes, optimized with B-Tree indexing to ensure O(log N)     sub-millisecond route resolution.",
-      "tags": ["Node.js", "Express.js", "PostgreSQL", "JavaScript", "Tailwind CSS"],
-      "liveLink": "https://crisp-url-shortener.vercel.app/",
-      "githubLink": "https://github.com/arkadipsom-code/crispURL-shortener"
-    }
-  ]
-}
+[
+  {
+    "id": "predictive-pavement-asset-management-system",
+    "title": "Predictive Pavement Asset Management System",
+    "category": "Analytics",
+    "featured": true,
+    "subtitle": "End-to-end pavement management system predicting structural road deterioration and automating lifecycle maintenance planning",
+    "description": "An analytical asset management platform built to model and predict long-term structural and functional road degradation (IRI, PCI) based on cumulative traffic loads and subgrade CBR properties. Utilizing Machine Learning alongside IRC:37 and NHAI maintenance guidelines, it dynamically maps predicted surface distress to multi-year capital budget schedules and interactive financial dashboards to optimize highway lifecycle expenditures.",
+    "highlights": [
+      "Developed an ML pipeline using Gradient Boosting Regression to forecast pavement degradation (IRI, PCI) from cumulative traffic loads (ESALs/MSA) and subgrade CBR.",
+      "Automated capital planning using IRC:37 & NHAI guidelines, mapping distress models to dynamic Plotly financial dashboards for multi-year maintenance scheduling."
+    ],
+    "techStack": [
+      "Python",
+      "Scikit-Learn",
+      "Streamlit",
+      "Plotly"
+    ],
+    "liveUrl": "https://pavement-prediction-app.streamlit.app/",
+    "githubUrl": "https://github.com/arkadipsom-code/Pavement-Prediction-App"
+  },
+  {
+    "id": "texify",
+    "title": "Texify",
+    "category": "Web Development",
+    "featured": true,
+    "subtitle": "Automated React & Node.js resume builder compiling raw LaTeX to PDF",
+    "description": "An automated resume builder engineered for IIEST Shibpur students to bypass LaTeX syntax debugging. It features a reactive, dual-pane React frontend with smart UX auto-bullet injection, Google OAuth domain-locking to college emails, and a Node.js/Express backend that compiles structured JSON payloads into high-quality, ATS-friendly PDFs on the fly.",
+    "highlights": [
+      "Built a dual-pane reactive form UI parsing user inputs into formatted LaTeX source code.",
+      "Integrated Node.js/Express backend with cloud PostgreSQL for compiling ATS-friendly PDFs on the fly."
+    ],
+    "techStack": ["React.js", "Node.js", "Express.js", "PostgreSQL", "Tailwind CSS", "LaTeX", "Google OAuth"],
+    "liveUrl": "https://texify-nine.vercel.app/",
+    "githubUrl": "https://github.com/arkadipsom-code/Texify"
+  },
+  {
+    "id": "kol-water-infra-dashboard",
+    "title": "Kolkata Water Infrastructure Forecast Dashboard",
+    "category": "Analytics",
+    "featured": true,
+    "subtitle": "An engineering dashboard quantifying municipal water demand and sewer network capacity through decadal demographic modeling",
+    "description": "An interactive forecasting platform designed to project Kolkata's municipal water demands and sewerage infrastructure loads up to the mid-21st century. By integrating demographic forecasting methods—including Arithmetic, Geometric, and Incremental Increase formulations with CPHEEO engineering design guidelines, the dashboard calculates domestic-commercial consumption requirements, wastewater generation, and peak wet-weather hydraulic capacities for strategic urban utility planning.",
+    "highlights": [
+      "Integrated Arithmetic, Geometric, and Incremental demographic models aligned with CPHEEO design standards.",
+      "Visualized decadal municipal water demands, wastewater generation, and sewer hydraulic capacity forecasts."
+    ],
+    "techStack": ["Python", "Scikit-Learn", "Plotly", "Streamlit"],
+    "liveUrl": "https://kolkata-water-infrastructure-forecast-dashboard.streamlit.app/",
+    "githubUrl": "https://github.com/arkadipsom-code/Kolkata-Water-Infrastructure-Forecast"
+  },
+  {
+    "id": "india-climate-resilience",
+    "title": "India's Climate Resilience & Strategic Capital Allocation Platform",
+    "category": "Analytics",
+    "featured": true,
+    "subtitle": "Predictive ML-driven climate risk forecasting and dynamic budget optimization dashboard",
+    "description": "An empirical analytical dashboard designed to quantify long-range urban climate risk and optimize infrastructure fund allocation across major Indian metropolitan areas. The platform uses linear regression models to forecast temperature drift and extreme weather event frequencies up to 2040, then dynamically routes adaptation fund pools (up to 20,000 Crores) using an algorithmic capital prioritization matrix.",
+    "highlights": [
+      "Trained linear regression models forecasting temperature drift and extreme climate risks through 2040.",
+      "Engineered a capital allocation prioritization matrix dynamically routing adaptation funds across metropolitan hubs."
+    ],
+    "techStack": ["Python", "Scikit-Learn", "Streamlit", "Pandas", "Plotly"],
+    "liveUrl": "https://india-climate-resilience-dashboard.streamlit.app/",
+    "githubUrl": "https://github.com/arkadipsom-code/India-Climate-Resilience-Dashboard"
+  },
+  {
+    "id": "reinforcement-detailing-g1-rc-building",
+    "title": "Reinforcement Detailing of G+1 RC Building",
+    "category": "Core Civil Engineering",
+    "featured": true,
+    "subtitle": "Structural load estimation and limit state design of a G+1 RC frame structure per Indian Standards",
+    "description": "A comprehensive structural engineering design project executing limit state analysis and reinforcement detailing for a G+1 RC frame building. The project covers structural load estimations alongside detailed member design—including slabs, continuous beams, columns, staircases, combined footings, and pile foundations—in compliance with IS 456, IS 875, SP-16, and SP-34.",
+    "highlights": [
+      "Executed structural load estimations (Dead & Live combinations) and Limit State Design for a G+1 RC frame structure as per IS 456 and IS 875.",
+      "Designed critical structural elements (slabs, beams, columns, footings, piles) and produced reinforcement detailing and Bar Bending Schedules (BBS) as per SP-34."
+    ],
+    "techStack": [
+      "IS 456",
+      "IS 875",
+      "SP-16",
+      "SP-34",
+      "RCC Design"
+    ],
+    "liveUrl": "",
+    "githubUrl": ""
+  },
+  {
+    "id": "crispurl",
+    "title": "CrispURL - Low-Latency Scalable Link Shortener",
+    "category": "Web Development",
+    "featured": false,
+    "subtitle": "High-performance URL shortener and redirect engine leveraging Base62 compression",
+    "description": "A full-stack, decoupled URL shortening and redirection platform featuring an event-driven Node.js/Express backend, a vanilla JS/Tailwind CSS frontend, and a serverless Neon PostgreSQL database. The system utilizes an atomic database transaction model to map auto-incrementing integer IDs to unique Base62-encoded short codes, optimized with B-Tree indexing to ensure O(log N) sub-millisecond route resolution.",
+    "highlights": [
+      "Implemented Base62 encoding to compress long URL inputs into high-performance short identifiers.",
+      "Configured B-Tree database indexing on serverless PostgreSQL to guarantee sub-millisecond redirect resolution."
+    ],
+    "techStack": ["Node.js", "Express.js", "PostgreSQL", "JavaScript", "Tailwind CSS"],
+    "liveUrl": "https://crisp-url-shortener.vercel.app/",
+    "githubUrl": "https://github.com/arkadipsom-code/crispURL-shortener"
+  },
+  {
+    "id": "weather-temperature-prediction",
+    "title": "Climatic Analytics & Temperature Forecasting Engine",
+    "category": "Analytics",
+    "featured": false,
+    "subtitle": "High-precision RandomForest regression pipeline predicting global average temperatures",
+    "description": "An end-to-end supervised machine learning regression pipeline engineered to model non-linear climatic patterns and predict global average temperatures. Leveraging a 3,190+ sample dataset, the architecture integrates seasonal feature extraction, standard scaling, and SelectKBest feature selection into a rigorous Scikit-Learn pipeline to prevent data leakage, optimizing a RandomForestRegressor to achieve a 0.981 test R² score and 0.171 RMSE.",
+    "highlights": [
+      "Constructed a full Scikit-Learn regression pipeline incorporating SelectKBest feature selection and scaling.",
+      "Achieved a 0.981 test R² score and 0.171 RMSE using a fine-tuned RandomForestRegressor model."
+    ],
+    "techStack": ["Python", "Scikit-Learn", "Pandas", "Random Forest", "Matplotlib"],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/arkadipsom-code/Weather-Temperature-Prediction-ML"
+  },
+  {
+    "id": "spatial-analysis-terrain-modeling",
+    "title": "Spatial Analysis & Terrain Modeling",
+    "category": "Core Civil Engineering",
+    "featured": false,
+    "subtitle": "GIS & remote sensing pipeline for catchment delineation and hydrological terrain analysis",
+    "description": "A GIS coursework project involving georeferencing, vectorization, and DEM processing for hydrological modeling. The project executed spatial overlay and proximity analysis to extract precise areas of interest, compute watershed characteristics, and calculate average rainfall estimates for regional terrain analysis.",
+    "highlights": [
+      "Georeferenced, vectorized, and mosaicked toposheets to extract precise areas of interest and build vector/raster datasets.",
+      "Processed DEM datasets for catchment delineation, watershed characteristic analysis, and hydrological rainfall estimation."
+    ],
+    "techStack": [
+      "ArcMap (ArcGIS)",
+      "ERDAS Imagine",
+      "DEM Data",
+      "GIS"
+    ],
+    "liveUrl": "",
+    "githubUrl": ""
+  },
+  {
+    "id": "building-planning-cad-layout-design",
+    "title": "Building Planning & CAD Layout Design",
+    "category": "Core Civil Engineering",
+    "featured": false,
+    "subtitle": "Architectural planning and 2D drafting of residential units per municipal building codes",
+    "description": "An architectural and structural drafting project focused on designing residential and storage facility layouts compliant with municipal regulations governing FAR, Ground Coverage, and Open Spaces. Detailed 2D engineering drawings were produced using AutoCAD with standard layering, dimensioning, hatching, and plumbing schematics.",
+    "highlights": [
+      "Planned architectural and structural layouts compliant with municipal codes governing FAR, Ground Coverage, Plinth Area, and Open Spaces.",
+      "Drafted 2D engineering drawings in AutoCAD including floor plans, cross-sections, foundation profiles, and plumbing layouts."
+    ],
+    "techStack": [
+      "AutoCAD",
+      "Municipal Building Codes",
+      "CAD Drafting"
+    ],
+    "liveUrl": "",
+    "githubUrl": ""
+  }
+]

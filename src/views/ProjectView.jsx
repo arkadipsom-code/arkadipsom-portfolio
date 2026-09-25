@@ -28,14 +28,14 @@ export default function ProjectView() {
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-300">
       
       {/* Header & Filter Tabs */}
-      <div className="space-y-4 pb-2 border-b border-gray-100 dark:border-gray-800">
+      <div className="space-y-4 pb-2 border-b border-zinc-200 dark:border-zinc-800">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold tracking-widest text-gray-800 dark:text-gray-200 uppercase">
+            <h2 className="text-xl font-bold tracking-widest text-zinc-800 dark:text-zinc-200 uppercase">
               Technical Projects
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-              Production web applications, machine learning tools and engineering softwares.
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
+              Production web applications, machine learning tools and engineering software.
             </p>
           </div>
         </div>
@@ -46,10 +46,10 @@ export default function ProjectView() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all ${
+              className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-black dark:bg-white text-white dark:text-black shadow-sm'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 shadow-sm'
+                  : 'bg-zinc-200/60 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300/60 dark:hover:bg-zinc-700/60 hover:text-zinc-900 dark:hover:text-zinc-100'
               }`}
             >
               {cat}
@@ -61,26 +61,26 @@ export default function ProjectView() {
       {/* Project Grid */}
       <div className="grid grid-cols-1 gap-6">
         {filteredProjects.length === 0 ? (
-          <p className="text-sm text-gray-500">No projects found for this category.</p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">No projects found for this category.</p>
         ) : (
           filteredProjects.map((project, idx) => (
             <div
               key={project.id || idx}
-              className="p-6 bg-white dark:bg-gray-900/50 border border-gray-200/80 dark:border-gray-800/80 rounded-2xl space-y-4 hover:border-black dark:hover:border-white transition-all duration-200 group"
+              className="p-6 bg-zinc-200/40 dark:bg-zinc-800/30 border border-zinc-300/50 dark:border-zinc-700/50 rounded-2xl space-y-4 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-200 group"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-[10px] font-bold uppercase tracking-wider rounded">
+                    <span className="px-2 py-0.5 bg-zinc-200/80 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-[10px] font-bold uppercase tracking-wider rounded">
                       {project.category || 'Engineering'}
                     </span>
                     {project.featured && (
-                      <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider rounded">
+                      <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 text-[10px] font-bold uppercase tracking-wider rounded">
                         Featured
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-extrabold text-black dark:text-white tracking-wide group-hover:underline">
+                  <h3 className="text-xl font-extrabold text-zinc-900 dark:text-zinc-100 tracking-wide group-hover:underline">
                     {project.title}
                   </h3>
                 </div>
@@ -92,7 +92,7 @@ export default function ProjectView() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-black dark:text-white text-xs font-bold rounded-lg transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-200/80 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 text-xs font-bold rounded-lg transition-colors border border-zinc-300/50 dark:border-zinc-700/50"
                     >
                       <GithubIcon size={14} /> Code
                     </a>
@@ -102,7 +102,7 @@ export default function ProjectView() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-100 text-white dark:text-black text-xs font-bold rounded-lg transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 text-xs font-bold rounded-lg transition-colors"
                     >
                       <ExternalLink size={14} /> Live Demo
                     </a>
@@ -110,7 +110,7 @@ export default function ProjectView() {
                 </div>
               </div>
 
-              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
                 {project.description}
               </p>
 
@@ -118,8 +118,8 @@ export default function ProjectView() {
               {project.highlights && project.highlights.length > 0 && (
                 <ul className="space-y-1.5 pt-1">
                   {project.highlights.map((point, pIdx) => (
-                    <li key={pIdx} className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 flex items-start gap-2 leading-relaxed">
-                      <span className="text-gray-400 dark:text-gray-600 select-none">•</span>
+                    <li key={pIdx} className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 flex items-start gap-2 leading-relaxed">
+                      <span className="text-zinc-400 dark:text-zinc-500 select-none">•</span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -128,11 +128,11 @@ export default function ProjectView() {
 
               {/* Tech Stack Tags */}
               {project.techStack && project.techStack.length > 0 && (
-                <div className="flex flex-wrap gap-2 pt-3 border-t border-gray-100 dark:border-gray-800/60">
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-200 dark:border-zinc-800">
                   {project.techStack.map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="px-2.5 py-1 bg-gray-50 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-[11px] font-medium rounded-md"
+                      className="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-300/60 dark:border-zinc-700/60 text-zinc-800 dark:text-zinc-300 text-[11px] font-medium rounded-md"
                     >
                       {tech}
                     </span>

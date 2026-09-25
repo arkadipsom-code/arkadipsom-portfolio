@@ -30,7 +30,6 @@ export default function ContactView() {
     const form = e.target;
     
     try {
-      // Explicit endpoint targeting xeedpnbb
       const response = await fetch('https://formspree.io/f/xeedpnbb', {
         method: 'POST',
         body: new FormData(form),
@@ -52,15 +51,38 @@ export default function ContactView() {
     }
   };
 
+  const contactLinks = [
+    {
+      type: 'email',
+      icon: Mail,
+      label: profileData.email || 'arkadipsom@gmail.com',
+      href: `mailto:${profileData.email || 'arkadipsom@gmail.com'}`,
+    },
+    {
+      type: 'linkedin',
+      icon: LinkedinIcon,
+      label: 'LinkedIn',
+      href: 'https://linkedin.com/in/arkadip-som',
+      external: true,
+    },
+    {
+      type: 'github',
+      icon: GithubIcon,
+      label: 'GitHub',
+      href: 'https://github.com/arkadipsom-code',
+      external: true,
+    },
+  ];
+
   return (
     <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-300">
       
       {/* Header */}
-      <div className="pb-2 border-b border-gray-100 dark:border-gray-800">
-        <h2 className="text-xl font-bold tracking-widest text-gray-800 dark:text-gray-200 uppercase">
+      <div className="pb-2 border-b border-zinc-200 dark:border-zinc-800">
+        <h2 className="text-xl font-bold tracking-widest text-zinc-800 dark:text-zinc-200 uppercase">
           Get in Touch
         </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+        <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
           Open to opportunities in core engineering, technology and management consulting.
         </p>
       </div>
@@ -69,57 +91,48 @@ export default function ContactView() {
         
         {/* Direct Contact Links */}
         <div className="space-y-6">
-          <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
             Feel free to reach out directly via email or connect across social platforms. 
           </p>
 
-          <div className="space-y-4">
-            <a
-              href={`mailto:${profileData.email || 'arkadipsom@gmail.com'}`}
-              className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800 rounded-xl hover:border-black dark:hover:border-white transition-all text-black dark:text-white group"
-            >
-              <Mail className="text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" size={20} />
-              <div className="text-sm font-semibold">
-                {profileData.email || 'arkadipsom@gmail.com'}
-              </div>
-            </a>
-
-            <a
-              href="https://linkedin.com/in/arkadip-som"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800 rounded-xl hover:border-black dark:hover:border-white transition-all text-black dark:text-white group"
-            >
-              <LinkedinIcon className="text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" size={20} />
-              <div className="text-sm font-semibold">LinkedIn</div>
-            </a>
-
-            <a
-              href="https://github.com/arkadipsom-code"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800 rounded-xl hover:border-black dark:hover:border-white transition-all text-black dark:text-white group"
-            >
-              <GithubIcon className="text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" size={20} />
-              <div className="text-sm font-semibold">GitHub</div>
-            </a>
+          <div className="space-y-3">
+            {contactLinks.map((link, idx) => {
+              const IconComponent = link.icon;
+              return (
+                <a
+                  key={idx}
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                  className="flex items-center gap-3.5 p-4 bg-zinc-200/50 dark:bg-zinc-800/40 border border-zinc-300/50 dark:border-zinc-700/50 rounded-xl hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-300/40 dark:hover:bg-zinc-800/80 transition-all text-zinc-800 dark:text-zinc-200 group"
+                >
+                  <IconComponent 
+                    size={20} 
+                    className="text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors flex-shrink-0" 
+                  />
+                  <div className="text-sm font-semibold group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
+                    {link.label}
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className="p-6 bg-white dark:bg-gray-900/50 border border-gray-200/80 dark:border-gray-800/80 rounded-2xl">
+        <div className="p-6 bg-zinc-200/40 dark:bg-zinc-800/30 border border-zinc-300/50 dark:border-zinc-700/50 rounded-2xl shadow-sm">
           {submitted ? (
             <div className="flex flex-col items-center justify-center text-center py-12 space-y-3">
               <CheckCircle2 className="text-emerald-500" size={44} />
-              <h3 className="text-lg font-bold text-black dark:text-white">Message Sent!</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Message Sent!</h3>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
                 Thank you for reaching out. Your message has been sent successfully.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                <label className="text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
                   Your Name
                 </label>
                 <input
@@ -127,12 +140,12 @@ export default function ContactView() {
                   name="name"
                   required
                   placeholder="John Doe"
-                  className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-black dark:text-white placeholder-gray-400 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
+                  className="w-full px-4 py-2.5 bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-700 rounded-lg text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                <label className="text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
                   Email Address
                 </label>
                 <input
@@ -140,12 +153,12 @@ export default function ContactView() {
                   name="email"
                   required
                   placeholder="john@example.com"
-                  className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-black dark:text-white placeholder-gray-400 focus:outline-none focus:border-black dark:focus:border-white transition-colors"
+                  className="w-full px-4 py-2.5 bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-700 rounded-lg text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                <label className="text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
                   Message
                 </label>
                 <textarea
@@ -153,7 +166,7 @@ export default function ContactView() {
                   required
                   rows={4}
                   placeholder="Write your message here..."
-                  className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-black dark:text-white placeholder-gray-400 focus:outline-none focus:border-black dark:focus:border-white transition-colors resize-none"
+                  className="w-full px-4 py-2.5 bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-700 rounded-lg text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors resize-none"
                 />
               </div>
 
@@ -167,7 +180,7 @@ export default function ContactView() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gray-900 dark:bg-white text-white dark:text-black text-xs font-bold tracking-widest rounded-lg hover:bg-black dark:hover:bg-gray-100 active:scale-[0.98] transition-all cursor-pointer uppercase disabled:opacity-50"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-xs font-bold tracking-widest rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 active:scale-[0.98] transition-all cursor-pointer uppercase disabled:opacity-50"
               >
                 <Send size={14} /> {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

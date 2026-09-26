@@ -8,8 +8,16 @@ import SkillsView from './views/SkillsView';
 import ContactView from './views/ContactView';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home');
-  
+  // Helper to read initial route directly from window.location.pathname
+  const getInitialTab = () => {
+    const path = window.location.pathname.replace(/^\/+|\/+$/g, ''); // strip leading/trailing slashes
+    const validTabs = ['projects', 'experience', 'skills', 'contact'];
+    if (path === '' || path === 'home') return 'home';
+    return validTabs.includes(path) ? path : 'home';
+  };
+
+  const [activeTab, setActiveTab] = useState(getInitialTab);
+
   // Defaults to Dark Mode unless explicitly set to 'light'
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -30,12 +38,8 @@ export default function App() {
 
   // Browser Back/Forward Button State Sync
   useEffect(() => {
-    const handlePopState = (event) => {
-      if (event.state && event.state.tab) {
-        setActiveTab(event.state.tab);
-      } else {
-        setActiveTab('home');
-      }
+    const handlePopState = () => {
+      setActiveTab(getInitialTab());
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -44,11 +48,8 @@ export default function App() {
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
-    if (tabId === 'home') {
-      window.history.pushState({ tab: 'home' }, '', 'home');
-    } else {
-      window.history.pushState({ tab: tabId }, '', `${tabId}`);
-    }
+    const targetPath = tabId === 'home' ? '/' : `/${tabId}`;
+    window.history.pushState({ tab: tabId }, '', targetPath);
   };
 
   const navItems = [
@@ -79,13 +80,11 @@ export default function App() {
   return (
     <div className="min-h-screen w-full bg-[#faf9f6] dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 antialiased transition-colors duration-200">
       <Analytics />
-      
+
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-24 flex flex-col md:flex-row gap-12 md:gap-20 items-start">
-        
         {/* Left Navigation Sidebar */}
         <aside className="w-full md:w-52 flex-shrink-0">
           <div className="md:sticky md:top-24 flex flex-col gap-6 md:gap-8">
-            
             <div className="flex items-center justify-between">
               <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100 uppercase">
                 Arkadip Som
@@ -99,7 +98,7 @@ export default function App() {
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             </div>
-            
+
             <nav className="flex flex-row md:flex-col gap-x-6 gap-y-4 flex-wrap border-b border-zinc-200 dark:border-zinc-800 pb-4 md:pb-0 md:border-none">
               {navItems.map((item) => (
                 <button
@@ -117,7 +116,9 @@ export default function App() {
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-zinc-900 dark:bg-zinc-100 md:hidden" />
                   )}
                   {activeTab === item.id && (
-                    <span className="hidden md:inline-block ml-2 text-zinc-900 dark:text-zinc-100 font-extrabold">▪</span>
+                    <span className="hidden md:inline-block ml-2 text-zinc-900 dark:text-zinc-100 font-extrabold">
+                      ▪
+                    </span>
                   )}
                 </button>
               ))}
@@ -126,10 +127,7 @@ export default function App() {
         </aside>
 
         {/* Right Content Area */}
-        <main className="flex-1 w-full pt-1 md:pt-0">
-          {renderContent()}
-        </main>
-
+        <main className="flex-1 w-full pt-1 md:pt-0">{renderContent()}</main>
       </div>
     </div>
   );

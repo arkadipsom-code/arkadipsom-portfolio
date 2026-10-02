@@ -104,21 +104,21 @@ export default function ProfileView() {
       {/* Social & Resume Links Inline Bar */}
       <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm sm:text-base text-neutral-500 dark:text-neutral-400 font-normal">
         <a 
-          href="https://github.com/arkadipsom-code" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors inline-flex items-center gap-1 leading-none"
-        >
-          github <ArrowUpRight size={14} />
-        </a>
-
-        <a 
           href="https://linkedin.com/in/arkadip-som" 
           target="_blank" 
           rel="noopener noreferrer"
           className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors inline-flex items-center gap-1 leading-none"
         >
           linkedin <ArrowUpRight size={14} />
+        </a>
+
+        <a 
+          href="https://github.com/arkadipsom-code" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors inline-flex items-center gap-1 leading-none"
+        >
+          github <ArrowUpRight size={14} />
         </a>
 
         <a 

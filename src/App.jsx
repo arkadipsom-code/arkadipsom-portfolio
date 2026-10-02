@@ -76,17 +76,17 @@ export default function App() {
     <div className="min-h-screen w-full bg-[#faf9f6] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-200 selection:bg-zinc-200 dark:selection:bg-zinc-800">
       <Analytics />
 
-      {/* Central reading container scaled for desktop & mobile readability */}
+      {/* Central reading container */}
       <div className="max-w-2xl sm:max-w-3xl mx-auto px-6 py-10 sm:py-16 md:py-20 space-y-8 sm:space-y-10">
         
         {/* Navigation Header */}
-        <header className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4">
-          <nav className="flex items-center gap-6 sm:gap-8 text-base sm:text-lg">
+        <header className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4 gap-4">
+          <nav className="flex items-center gap-6 sm:gap-8 text-base sm:text-lg overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap py-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleTabChange(item.id)}
-                className={`transition-all cursor-pointer relative pb-1 font-medium ${
+                className={`transition-all cursor-pointer relative pb-1 font-medium flex-shrink-0 ${
                   activeTab === item.id
                     ? 'text-zinc-900 dark:text-zinc-100'
                     : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200'
@@ -103,13 +103,13 @@ export default function App() {
           <button
             onClick={() => setDarkMode((prev) => !prev)}
             aria-label="Toggle Theme"
-            className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer p-1.5 rounded-lg"
+            className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer p-1.5 rounded-lg flex-shrink-0"
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </header>
 
-        {/* Dynamic View Container with smooth tab key-transition */}
+        {/* Dynamic View Container */}
         <main className="w-full pt-1">
           <div key={activeTab} className="animate-fade-in">
             {renderContent()}

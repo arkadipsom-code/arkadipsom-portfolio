@@ -66,7 +66,7 @@ export default function ProfileView() {
             Arkadip Som
           </h1>
           <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 font-normal">
-            Radical Optimist / Absolute Learner
+            radical optimist / absolute learner
           </p>
         </div>
 

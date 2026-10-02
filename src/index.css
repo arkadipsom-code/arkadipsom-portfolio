@@ -1,11 +1,24 @@
-/* 1. Import Inter & Manrope directly from Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@600;700;800&family=Rubik:wght@300;400;500;600&display=swap");
+/* 1. Import Instrument Sans, Manrope & Inter from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 /* Enable class-based dark mode toggling in Tailwind v4 */
 @variant dark (&:where(.dark, .dark *));
 
+:root {
+  /* GLOBAL FONT CONFIGURATION:
+     To change the font across your entire website to Manrope later, 
+     simply change 'Instrument Sans' to 'Manrope' right here! */
+  --font-primary:
+    "Inter", "Manrope", "Instrument Sans", -apple-system, sans-serif;
+}
+
 @layer base {
+  *,
+  ::before,
+  ::after {
+    font-family: inherit;
+  }
   html,
   body,
   #root {
@@ -17,31 +30,36 @@
     background: #faf9f6; /* Warm alabaster light background */
     user-select: text;
 
-    font-family:
-      "Inter",
-      -apple-system,
-      sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #27272a; /* Deep zinc-800 text */
+    font-family: var(--font-primary);
+
+    /* Responsive Base Font Size & High Contrast Line-Height */
+    font-size: 16px; /* Upgraded from 14px for improved readability across screens */
+    line-height: 1.7;
+    color: #18181b; /* High-contrast zinc-900 light mode text */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Smooth body background dark transition */
+  /* Dark Mode Styling with High-Contrast Text & Deep Background */
   html.dark,
   html.dark body,
   html.dark #root {
-    background: #18181b; /* Soothing zinc-900 charcoal dark background */
-    color: #e4e4e7; /* Soft zinc-200 off-white text */
+    background: #09090b; /* Deep zinc-950 dark background */
+    color: #f4f4f5; /* Soft zinc-100 high-contrast text */
   }
 
-  /* Map headings to Manrope */
+  /* All Elements Inherit Global Primary Font */
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6 {
-    font-family: "Manrope", sans-serif;
+  h6,
+  p,
+  button,
+  input,
+  textarea {
+    font-family: var(--font-primary);
   }
 }
 
@@ -57,4 +75,19 @@
     background: rgba(161, 161, 170, 0.2);
     border-radius: 9999px;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
 }

@@ -8,9 +8,8 @@ import SkillsView from './views/SkillsView';
 import ContactView from './views/ContactView';
 
 export default function App() {
-  // Helper to read initial route directly from window.location.pathname
   const getInitialTab = () => {
-    const path = window.location.pathname.replace(/^\/+|\/+$/g, ''); // strip leading/trailing slashes
+    const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
     const validTabs = ['projects', 'experience', 'skills', 'contact'];
     if (path === '' || path === 'home') return 'home';
     return validTabs.includes(path) ? path : 'home';
@@ -18,13 +17,11 @@ export default function App() {
 
   const [activeTab, setActiveTab] = useState(getInitialTab);
 
-  // Defaults to Dark Mode unless explicitly set to 'light'
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     return savedTheme ? savedTheme === 'dark' : true;
   });
 
-  // Dark Mode Class Sync & LocalStorage Persistence
   useEffect(() => {
     const root = document.documentElement;
     if (darkMode) {
@@ -36,12 +33,10 @@ export default function App() {
     }
   }, [darkMode]);
 
-  // Browser Back/Forward Button State Sync
   useEffect(() => {
     const handlePopState = () => {
       setActiveTab(getInitialTab());
     };
-
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
@@ -78,56 +73,48 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#faf9f6] dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 antialiased transition-colors duration-200">
+    <div className="min-h-screen w-full bg-[#faf9f6] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-200 selection:bg-zinc-200 dark:selection:bg-zinc-800">
       <Analytics />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-24 flex flex-col md:flex-row gap-12 md:gap-20 items-start">
-        {/* Left Navigation Sidebar */}
-        <aside className="w-full md:w-52 flex-shrink-0">
-          <div className="md:sticky md:top-24 flex flex-col gap-6 md:gap-8">
-            <div className="flex items-center justify-between">
-              <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100 uppercase">
-                Arkadip Som
-              </h1>
-              {/* Dark Mode Toggle */}
+      {/* Central reading container scaled for desktop & mobile readability */}
+      <div className="max-w-2xl sm:max-w-3xl mx-auto px-6 py-10 sm:py-16 md:py-20 space-y-8 sm:space-y-10">
+        
+        {/* Navigation Header */}
+        <header className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4">
+          <nav className="flex items-center gap-6 sm:gap-8 text-base sm:text-lg">
+            {navItems.map((item) => (
               <button
-                onClick={() => setDarkMode((prev) => !prev)}
-                aria-label="Toggle Theme"
-                className="p-2 rounded-lg text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+                key={item.id}
+                onClick={() => handleTabChange(item.id)}
+                className={`transition-all cursor-pointer relative pb-1 font-medium ${
+                  activeTab === item.id
+                    ? 'text-zinc-900 dark:text-zinc-100'
+                    : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200'
+                }`}
               >
-                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+                {item.label}
+                {activeTab === item.id && (
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-zinc-900 dark:bg-zinc-100 rounded-full" />
+                )}
               </button>
-            </div>
+            ))}
+          </nav>
 
-            <nav className="flex flex-row md:flex-col gap-x-6 gap-y-4 flex-wrap border-b border-zinc-200 dark:border-zinc-800 pb-4 md:pb-0 md:border-none">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleTabChange(item.id)}
-                  className={`text-sm font-bold tracking-widest text-left uppercase transition-all duration-150 cursor-pointer outline-none focus:outline-none select-none relative pb-1 md:pb-0 ${
-                    activeTab === item.id
-                      ? 'text-zinc-900 dark:text-zinc-100 font-extrabold'
-                      : 'text-zinc-400 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
-                  }`}
-                  style={{ WebkitTapHighlightColor: 'transparent' }}
-                >
-                  {item.label}
-                  {activeTab === item.id && (
-                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-zinc-900 dark:bg-zinc-100 md:hidden" />
-                  )}
-                  {activeTab === item.id && (
-                    <span className="hidden md:inline-block ml-2 text-zinc-900 dark:text-zinc-100 font-extrabold">
-                      ▪
-                    </span>
-                  )}
-                </button>
-              ))}
-            </nav>
+          <button
+            onClick={() => setDarkMode((prev) => !prev)}
+            aria-label="Toggle Theme"
+            className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer p-1.5 rounded-lg"
+          >
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+        </header>
+
+        {/* Dynamic View Container with smooth tab key-transition */}
+        <main className="w-full pt-1">
+          <div key={activeTab} className="animate-fade-in">
+            {renderContent()}
           </div>
-        </aside>
-
-        {/* Right Content Area */}
-        <main className="flex-1 w-full pt-1 md:pt-0">{renderContent()}</main>
+        </main>
       </div>
     </div>
   );

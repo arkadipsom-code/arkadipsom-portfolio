@@ -1,88 +1,74 @@
 import React from 'react';
 import experiencesData from '../data/experiences.json';
-import { Calendar, MapPin } from 'lucide-react';
 
 export default function ExperiencesView() {
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-300">
+    <div className="max-w-2xl mx-auto space-y-8 text-neutral-800 dark:text-neutral-200">
       
-      {/* Header */}
-      <div className="pb-2 border-b border-zinc-200 dark:border-zinc-800">
-        <h2 className="text-xl font-bold tracking-widest text-zinc-800 dark:text-zinc-200 uppercase">
-          Work Experience
-        </h2>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
-          Industrial visits / training, open-source contributions and engineering internships.
+      {/* Editorial Header */}
+      <div className="space-y-1">
+        <h1 className="text-xl sm:text-2xl font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
+          Experience
+        </h1>
+        <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400">
+          Industrial visits, open-source contributions, and engineering roles.
         </p>
       </div>
 
-      {/* Experience Cards */}
-      <div className="space-y-5">
+      {/* Editorial Timeline Entry List */}
+      <div className="space-y-10 pt-2">
         {experiencesData.map((exp, idx) => (
-          <div
-            key={exp.id || idx}
-            className="p-6 bg-zinc-200/40 dark:bg-zinc-800/30 border border-zinc-300/50 dark:border-zinc-700/50 rounded-2xl space-y-4 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all duration-200"
-          >
-            {/* Top Row: Role + Organization on left, Metadata on right */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-zinc-200 dark:border-zinc-800">
+          <div key={exp.id || idx} className="space-y-3">
+            
+            {/* Header: Company & Role on left, Date & Location on right */}
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
               <div>
-                <div className="text-xs font-semibold tracking-wider text-zinc-500 dark:text-zinc-400 uppercase">
-                  {exp.company}
-                </div>
-                <h3 className="text-lg font-extrabold text-zinc-900 dark:text-zinc-100 tracking-tight mt-0.5">
-                  {exp.role}
-                </h3>
+                <h2 className="text-base sm:text-lg font-medium text-neutral-900 dark:text-neutral-100">
+                  {exp.role} <span className="text-neutral-400 font-normal">at</span>{' '}
+                  {exp.companyUrl ? (
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-900 dark:text-neutral-100 underline underline-offset-4 decoration-neutral-300 dark:decoration-neutral-700 hover:decoration-neutral-900 dark:hover:decoration-neutral-100 transition-colors font-medium"
+                    >
+                      {exp.company}
+                    </a>
+                  ) : (
+                    <span>{exp.company}</span>
+                  )}
+                </h2>
               </div>
-
-              {/* Date & Location */}
-              <div className="flex items-center gap-4 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                {exp.duration && (
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={13} className="text-zinc-400 dark:text-zinc-500" />
-                    {exp.duration}
-                  </span>
-                )}
+              <div className="text-xs sm:text-sm text-neutral-400 dark:text-neutral-500 flex items-center gap-2 flex-shrink-0">
+                {exp.duration && <span>{exp.duration}</span>}
                 {exp.location && (
-                  <span className="flex items-center gap-1.5">
-                    <MapPin size={13} className="text-zinc-400 dark:text-zinc-500" />
-                    {exp.location}
-                  </span>
+                  <>
+                    <span>•</span>
+                    <span>{exp.location}</span>
+                  </>
                 )}
               </div>
             </div>
 
-            {/* Description */}
-            {exp.description && (
-              <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                {exp.description}
-              </p>
-            )}
-
-            {/* Bullet Points */}
+            {/* Narrative Paragraph Breakdown */}
             {exp.highlights && exp.highlights.length > 0 && (
-              <ul className="space-y-1.5 pt-1">
+              <div className="space-y-2 text-sm sm:text-base leading-relaxed text-neutral-600 dark:text-neutral-300">
                 {exp.highlights.map((point, pIdx) => (
-                  <li key={pIdx} className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 flex items-start gap-2.5 leading-relaxed">
-                    <span className="text-zinc-400 dark:text-zinc-500 select-none mt-0.5">–</span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {/* Skill Tags */}
-            {exp.skills && exp.skills.length > 0 && (
-              <div className="flex flex-wrap gap-2 pt-2">
-                {exp.skills.map((skill, sIdx) => (
-                  <span
-                    key={sIdx}
-                    className="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-300/60 dark:border-zinc-700/60 text-zinc-800 dark:text-zinc-300 text-[11px] font-medium rounded-md"
-                  >
-                    {skill}
-                  </span>
+                  <p key={pIdx}>
+                    {point}
+                  </p>
                 ))}
               </div>
             )}
+
+            {/* Minimal Inline Tech / Skill Tags */}
+            {(exp.tags || exp.skills) && (
+              <div className="text-xs sm:text-sm text-neutral-400 dark:text-neutral-500 flex flex-wrap items-center gap-x-2 pt-1">
+                <span>Key focus:</span>
+                <span>{(exp.tags || exp.skills).join(', ')}</span>
+              </div>
+            )}
+
           </div>
         ))}
       </div>

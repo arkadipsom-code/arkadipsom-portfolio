@@ -1,22 +1,9 @@
 [
   {
-    "id": "bis-2026",
-    "role": "Case Competition",
-    "company": "Bureau of Indian Standards (BIS)",
-    "duration": "Jan 2026 – Apr 2026",
-    "location": "Dankuni, Hooghly",
-    "facility": "UltraTech Cement",
-    "highlights": [
-      "Led a 3-member team selected nationally to evaluate industrial quality compliance, coordinating stakeholder interviews and site audits directly with BIS Kolkata leadership and UltraTech Cement Dankuni plant heads.",
-      "Audited cement manufacturing workflows at UltraTech Cement plant, verifying live testing procedures against mandated Indian Standards (IS 269, IS 1489, IS 455); identified 1 critical fly-ash process deviation and mapped 5 internal quality benchmarks maintained beyond baseline code requirements.",
-      "Synthesized complex plant test data and executive interviews into a 100-page compliance report, surfacing 10 compliance framework gaps and 15 actionable modernization recommendations submitted for BIS review."
-    ],
-    "tags": ["Quality Standards", "Material Mechanics", "Industrial Compliance"]
-  },
-  {
     "id": "gssoc-2026",
     "role": "Open Source Contributor",
     "company": "GirlScript Summer of Code (GSSoC)",
+    "companyUrl": "https://gssoc.girlscript.org/",
     "duration": "May 2026 – Jul 2026",
     "location": "Remote",
     "facility": "GirlScript Foundation",
@@ -26,5 +13,20 @@
       "Collaborated with project maintainers and global developer communities through Git/GitHub workflows, code reviews, and open-source documentation standards."
     ],
     "tags": ["Open Source", "Git & GitHub", "Software Engineering"]
+  },
+  {
+    "id": "bis-2026",
+    "role": "Case Competition",
+    "company": "Bureau of Indian Standards (BIS)",
+    "companyUrl": "https://www.bis.gov.in/",
+    "duration": "Jan 2026 – Apr 2026",
+    "location": "Dankuni, Hooghly",
+    "facility": "UltraTech Cement",
+    "highlights": [
+      "Led a 3-member team selected nationally to evaluate industrial quality compliance, coordinating stakeholder interviews and site audits directly with BIS Kolkata leadership and UltraTech Cement Dankuni plant heads.",
+      "Audited cement manufacturing workflows at UltraTech Cement plant, verifying live testing procedures against mandated Indian Standards (IS 269, IS 1489, IS 455); identified 1 critical fly-ash process deviation and mapped 5 internal quality benchmarks maintained beyond baseline code requirements.",
+      "Synthesized complex plant test data and executive interviews into a 100-page compliance report, surfacing 10 compliance framework gaps and 15 actionable modernization recommendations submitted for BIS review."
+    ],
+    "tags": ["Quality Standards", "Material Mechanics", "Industrial Compliance"]
   }
 ]

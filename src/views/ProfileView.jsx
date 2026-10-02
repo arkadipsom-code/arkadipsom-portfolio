@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import profileData from '../data/profile.json';
 import { ArrowUpRight, FileText, X } from 'lucide-react';
 
@@ -140,37 +141,50 @@ export default function ProfileView() {
         Kolkata, India <span className="mx-1.5 text-neutral-400">•</span> {currentTime || '00:00 XX IST'}
       </div>
 
-      {/* Full Viewport Resume Variant Selector Modal */}
-      {isResumeModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
-          <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5">
-            <div className="flex items-center justify-between pb-1 border-b border-neutral-100 dark:border-neutral-800">
-              <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">Select Resume Variant</span>
+      {/* React Portal Modal - Rendered at document.body level */}
+      {isResumeModalOpen && createPortal(
+        <div 
+          onClick={() => setIsResumeModalOpen(false)}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/40 dark:bg-black/60 backdrop-blur-sm animate-fade-in"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-[#121215] border border-neutral-200 dark:border-neutral-800 rounded-xl max-w-md w-full p-5 shadow-2xl space-y-4 transition-all"
+          >
+            <div className="flex items-center justify-between pb-2 border-b border-neutral-100 dark:border-neutral-800">
+              <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+                Select Resume Variant
+              </span>
               <button 
                 onClick={() => setIsResumeModalOpen(false)}
-                className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors p-1"
+                className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors p-1 cursor-pointer"
               >
-                <X size={18} />
+                <X size={16} />
               </button>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2">
               {resumeOptions.map((option, index) => (
                 <div 
                   key={index}
                   onClick={() => handleDownload(option.fileUrl, option.filename)}
-                  className="p-4 border border-neutral-100 dark:border-neutral-800/80 hover:border-neutral-300 dark:hover:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/40 rounded-xl transition-all cursor-pointer group flex items-start gap-3.5"
+                  className="p-3.5 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-800 bg-neutral-50/60 dark:bg-neutral-900/40 hover:bg-neutral-100 dark:hover:bg-neutral-800/60 rounded-lg transition-all cursor-pointer group flex items-start gap-3"
                 >
-                  <FileText className="text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100 mt-0.5 flex-shrink-0 transition-colors" size={18} />
-                  <div className="space-y-1">
-                    <div className="text-sm font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline decoration-neutral-400">{option.title}</div>
-                    <div className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">{option.description}</div>
+                  <FileText className="text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100 mt-0.5 flex-shrink-0 transition-colors" size={16} />
+                  <div className="space-y-0.5">
+                    <div className="text-sm font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline decoration-neutral-400">
+                      {option.title}
+                    </div>
+                    <div className="text-xs text-neutral-500 dark:text-neutral-400 leading-normal">
+                      {option.description}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </div>

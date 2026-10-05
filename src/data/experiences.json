@@ -8,9 +8,7 @@
     "location": "Remote",
     "facility": "GirlScript Foundation",
     "highlights": [
-      "Selected among top nationwide applicants as an Open Source Contributor for GSSoC '26, engaging in large-scale collaborative software development workflows.",
-      "Participated in developer onboarding, codebases analysis, and issue triage across community-driven software repositories to prepare for production-level contributions.",
-      "Collaborated with project maintainers and global developer communities through Git/GitHub workflows, code reviews, and open-source documentation standards."
+      "Selected as a GSSoC '26 Open Source Contributor, collaborating across global developer communities using Git/GitHub workflows, codebase analysis, issue triage, and code reviews to deliver production-level contributions and documentation standards."
     ],
     "tags": ["Open Source", "Git & GitHub", "Software Engineering"]
   },
@@ -23,9 +21,7 @@
     "location": "Dankuni, Hooghly",
     "facility": "UltraTech Cement",
     "highlights": [
-      "Led a 3-member team selected nationally to evaluate industrial quality compliance, coordinating stakeholder interviews and site audits directly with BIS Kolkata leadership and UltraTech Cement Dankuni plant heads.",
-      "Audited cement manufacturing workflows at UltraTech Cement plant, verifying live testing procedures against mandated Indian Standards (IS 269, IS 1489, IS 455); identified 1 critical fly-ash process deviation and mapped 5 internal quality benchmarks maintained beyond baseline code requirements.",
-      "Synthesized complex plant test data and executive interviews into a 100-page compliance report, surfacing 10 compliance framework gaps and 15 actionable modernization recommendations submitted for BIS review."
+      "Led a nationally selected 3-member team auditing quality compliance at UltraTech Cement Dankuni plant against IS 269, IS 1489, and IS 455; identified 1 critical process deviation, mapped 5 advanced quality benchmarks, and authored a comprehensive report presenting 10 compliance gaps and 15 actionable modernization recommendations to BIS Kolkata leadership."
     ],
     "tags": ["Quality Standards", "Material Mechanics", "Industrial Compliance"]
   }

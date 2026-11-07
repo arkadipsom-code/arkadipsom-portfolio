@@ -1,28 +1,29 @@
 [
   {
-    "id": "gssoc-2026",
-    "role": "Open Source Contributor",
-    "company": "GirlScript Summer of Code (GSSoC)",
-    "companyUrl": "https://gssoc.girlscript.org/",
-    "duration": "May 2026 – Jul 2026",
-    "location": "Remote",
-    "facility": "GirlScript Foundation",
-    "highlights": [
-      "Selected as a GSSoC '26 Open Source Contributor, collaborating across global developer communities using Git/GitHub workflows, codebase analysis, issue triage, and code reviews to deliver production-level contributions and documentation standards."
-    ],
-    "tags": ["Open Source", "Git & GitHub", "Software Engineering"]
+    "id": "iit-kgp",
+    "company": "Indian Institute of Technology, Kharagpur",
+    "role": "Winter Research Intern",
+    "period": "Upcoming Dec 2026",
+    "location": "Kharagpur, West Bengal",
+    "url": "https://www.iitkgp.ac.in",
+    "description": "Got selected for a winter research internship under Prof. Nandan Maiti, focusing on transportation infrastructure and data-driven engineering optimization."
   },
   {
-    "id": "bis-2026",
-    "role": "Case Competition",
-    "company": "Bureau of Indian Standards (BIS)",
-    "companyUrl": "https://www.bis.gov.in/",
-    "duration": "Jan 2026 – Apr 2026",
-    "location": "Dankuni, Hooghly",
-    "facility": "UltraTech Cement",
-    "highlights": [
-      "Led a nationally selected 3-member team auditing quality compliance at UltraTech Cement Dankuni plant against IS 269, IS 1489, and IS 455; identified 1 critical process deviation, mapped 5 advanced quality benchmarks, and authored a comprehensive report presenting 10 compliance gaps and 15 actionable modernization recommendations to BIS Kolkata leadership."
-    ],
-    "tags": ["Quality Standards", "Material Mechanics", "Industrial Compliance"]
+    "id": "gssoc",
+    "company": "GirlScript Summer of Code",
+    "role": "Selected Open Source Contributor",
+    "period": "May 2026 – Jul 2026",
+    "location": "Remote",
+    "url": "https://gssoc.girlscript.tech",
+    "description": "Selected as an open-source contributor for the 2026 session of GirlScript Summer of Code."
+  },
+  {
+    "id": "ultratech",
+    "company": "UltraTech Cement Plant, Dankuni",
+    "role": "Industrial Case Study & Quality Compliance Auditor",
+    "period": "Apr 2026",
+    "location": "Dankuni, West Bengal",
+    "url": "https://www.ultratechcement.com",
+    "description": "Led a nationally selected 3-member team auditing quality compliance at UltraTech Cement Dankuni plant against IS 269, IS 1489, and IS 455; identified 1 critical process deviation, mapped 5 advanced quality benchmarks, and authored a comprehensive report presenting 10 compliance gaps and 15 actionable modernization recommendations to BIS Kolkata leadership."
   }
 ]

@@ -1,16 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { Sun, Moon } from 'lucide-react';
-import ProfileView from './views/ProfileView';
-import ProjectView from './views/ProjectView';
-import ExperiencesView from './views/ExperiencesView';
-import SkillsView from './views/SkillsView';
-import ContactView from './views/ContactView';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import Experiences from './pages/Experiences';
+import Contact from './pages/Contact';
+
+export const ArrowIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="inline-block ml-0.5"
+  >
+    <path d="M7 7h10v10" />
+    <path d="M7 17 17 7" />
+  </svg>
+);
 
 export default function App() {
   const getInitialTab = () => {
     const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-    const validTabs = ['projects', 'experience', 'skills', 'contact'];
+    const validTabs = ['projects', 'experiences', 'contact'];
     if (path === '' || path === 'home') return 'home';
     return validTabs.includes(path) ? path : 'home';
   };
@@ -26,9 +43,11 @@ export default function App() {
     const root = document.documentElement;
     if (darkMode) {
       root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
       localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
+      root.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
@@ -48,73 +67,95 @@ export default function App() {
   };
 
   const navItems = [
-    { id: 'home', label: 'Home' },
     { id: 'projects', label: 'Projects' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
+    { id: 'experiences', label: 'Experience' },
     { id: 'contact', label: 'Contact' },
   ];
 
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
-        return <ProfileView />;
+        return <Home />;
       case 'projects':
-        return <ProjectView />;
-      case 'experience':
-        return <ExperiencesView />;
-      case 'skills':
-        return <SkillsView />;
+        return <Projects />;
+      case 'experiences':
+        return <Experiences />;
       case 'contact':
-        return <ContactView />;
+        return <Contact />;
       default:
-        return <ProfileView />;
+        return <Home />;
     }
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#faf9f6] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-200 selection:bg-zinc-200 dark:selection:bg-zinc-800">
+    <div className="min-h-screen flex flex-col justify-between w-full bg-[var(--bg-color)] text-[var(--text-color)] antialiased transition-colors duration-200">
       <Analytics />
 
-      {/* Central reading container */}
-      <div className="max-w-2xl sm:max-w-3xl mx-auto px-6 py-10 sm:py-16 md:py-20 space-y-8 sm:space-y-10">
-        
-        {/* Navigation Header */}
-        <header className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4 gap-4">
-          <nav className="flex items-center gap-6 sm:gap-8 text-base sm:text-lg overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap py-1">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleTabChange(item.id)}
-                className={`transition-all cursor-pointer relative pb-1 font-medium flex-shrink-0 ${
-                  activeTab === item.id
-                    ? 'text-zinc-900 dark:text-zinc-100'
-                    : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200'
-                }`}
-              >
-                {item.label}
-                {activeTab === item.id && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-zinc-900 dark:bg-zinc-100 rounded-full" />
-                )}
-              </button>
-            ))}
-          </nav>
+      <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 py-8 sm:py-12 flex-1 flex flex-col">
+        {/* Mobile-optimized Header Layout */}
+        <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-10 border-b border-[var(--border-color)]/40">
+          <div className="flex items-center justify-between w-full sm:w-auto">
+            <button
+              onClick={() => handleTabChange('home')}
+              className="editorial-heading text-xl sm:text-2xl font-normal hover:opacity-80 transition-opacity cursor-pointer text-[var(--text-color)]"
+            >
+              Arkadip Som
+            </button>
 
-          <button
-            onClick={() => setDarkMode((prev) => !prev)}
-            aria-label="Toggle Theme"
-            className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer p-1.5 rounded-lg flex-shrink-0"
-          >
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+            {/* Mobile Theme Toggle */}
+            <button
+              onClick={() => setDarkMode((prev) => !prev)}
+              aria-label="Toggle Theme"
+              className="sm:hidden text-[var(--text-muted)] hover:text-[var(--text-color)] transition-colors cursor-pointer p-1"
+            >
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+          </div>
+
+          <div className="flex items-center gap-6 sm:gap-8 justify-between sm:justify-end">
+            <nav className="flex items-center gap-6 sm:gap-8 text-sm sm:text-base">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleTabChange(item.id)}
+                  className={`transition-colors cursor-pointer relative pb-1 ${
+                    activeTab === item.id
+                      ? 'text-[var(--text-color)] font-medium border-b border-[var(--text-color)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-color)]'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+
+            {/* Desktop Theme Toggle */}
+            <button
+              onClick={() => setDarkMode((prev) => !prev)}
+              aria-label="Toggle Theme"
+              className="hidden sm:block text-[var(--text-muted)] hover:text-[var(--text-color)] transition-colors cursor-pointer p-1"
+            >
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+          </div>
         </header>
 
-        {/* Dynamic View Container */}
-        <main className="w-full pt-1">
+        {/* Dynamic Main Content */}
+        <main className="w-full flex-1 pt-10">
           <div key={activeTab} className="animate-fade-in">
             {renderContent()}
           </div>
         </main>
+
+        {/* Footer */}
+        <footer className="w-full border-t border-[var(--border-color)]/40 pt-8 mt-20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+          <div>© {new Date().getFullYear()} Arkadip Som. All rights reserved.</div>
+          <div className="flex items-center gap-6">
+            <a href="mailto:arkadipsom@gmail.com" className="hover:text-[var(--text-color)] transition-colors">Email</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-color)] transition-colors inline-flex items-center">LinkedIn <ArrowIcon /></a>
+            <a href="https://github.com/arkadipsom-code" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-color)] transition-colors inline-flex items-center">GitHub <ArrowIcon /></a>
+          </div>
+        </footer>
       </div>
     </div>
   );

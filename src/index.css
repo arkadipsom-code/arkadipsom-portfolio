@@ -1,22 +1,31 @@
-/* 1. Import Instrument Sans, Manrope & Inter from Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Cinzel:wght@400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Merriweather:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Hedvig+Letters+Sans&display=swap");
 @import "tailwindcss";
 
-/* Enable class-based dark mode toggling in Tailwind v4 */
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* GLOBAL FONT CONFIGURATION:
-     To change the font across your entire website to Manrope later, 
-     simply change 'Instrument Sans' to 'Manrope' right here! */
-  --font-primary: "Inter", "Source Serif 4", -apple-system, sans-serif;
+  --font-heading: "Hedvig Letters Sans", serif;
+  --font-body: "Geist", -apple-system, sans-serif;
+
+  --bg-color: #fafafa;
+  --text-color: #17181a;
+  --text-muted: #6e737b;
+  --border-color: #e2e4e8;
+}
+
+html.dark,
+[data-theme="dark"] {
+  --bg-color: #0a0a0c;
+  --text-color: #f4f4f5;
+  --text-muted: #8f959e;
+  --border-color: #1f2226;
 }
 
 @layer base {
   *,
   ::before,
   ::after {
-    font-family: inherit;
+    font-family: var(--font-body);
   }
   html,
   body,
@@ -25,54 +34,26 @@
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    overflow-y: auto;
-    background: #faf9f6; /* Warm alabaster light background */
-    user-select: text;
-
-    font-family: var(--font-primary);
-
-    /* Responsive Base Font Size & High Contrast Line-Height */
-    font-size: 16px; /* Upgraded from 14px for improved readability across screens */
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 16px;
     line-height: 1.7;
-    color: #18181b; /* High-contrast zinc-900 light mode text */
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Dark Mode Styling with High-Contrast Text & Deep Background */
-  html.dark,
-  html.dark body,
-  html.dark #root {
-    background: #09090b; /* Deep zinc-950 dark background */
-    color: #f4f4f5; /* Soft zinc-100 high-contrast text */
-  }
-
-  /* All Elements Inherit Global Primary Font */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6,
-  p,
-  button,
-  input,
-  textarea {
-    font-family: var(--font-primary);
-  }
-}
-
-@layer utilities {
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(161, 161, 170, 0.2);
-    border-radius: 9999px;
+  .editorial-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
   }
 }
 
@@ -88,5 +69,5 @@
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.2s ease-out forwards;
+  animation: fadeIn 0.25s ease-out forwards;
 }

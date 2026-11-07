@@ -57,7 +57,7 @@ export default function Home() {
       </div>
 
       <div className="pt-6 border-t border-[var(--border-color)]/40 flex flex-wrap items-center gap-6 text-sm text-[var(--text-muted)]">
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-color)] transition-colors inline-flex items-center">
+        <a href="https://linkedin.com/arkadip-som" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-color)] transition-colors inline-flex items-center">
           LinkedIn <ArrowIcon />
         </a>
         <a href="https://github.com/arkadipsom-code" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-color)] transition-colors inline-flex items-center">

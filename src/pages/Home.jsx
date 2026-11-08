@@ -31,7 +31,7 @@ export default function Home() {
     <div className="space-y-8 sm:space-y-10 animate-fade-in">
       <div className="space-y-4">
         <h1 className="editorial-heading text-3xl sm:text-4xl md:text-5xl font-normal leading-tight text-[var(--text-color)]">
-          I focus on engineering <span className="text-green-accent font-medium">sustainable</span> and <span className="text-green-accent font-medium">scalable</span> solutions across technology, business strategy, and infrastructure.
+          I focus on engineering <span className="text-green-accent font-medium">sustainable</span> and <span className="text-green-accent font-medium">scalable</span> solutions across technology, business strategy and infrastructure.
         </h1>
         <p className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed max-w-3xl">
           Hi, I’m Arkadip, a Civil Engineering undergrad in my pre-final year at{' '}
@@ -43,7 +43,7 @@ export default function Home() {
           >
             IIEST Shibpur <ArrowIcon />
           </a>
-          . I bridge core domain knowledge with analytical models and predictive systems to solve complex operational, environmental, and strategic challenges.
+          . I bridge core domain knowledge with analytical models and predictive systems to solve complex operational, environmental and strategic challenges.
         </p>
       </div>
 
@@ -52,7 +52,7 @@ export default function Home() {
           Academically, I maintain a <span className="text-[var(--text-color)] font-medium">7.99 CGPA</span> (till 4th semester) in B.Tech Civil Engineering, having previously secured <span className="text-[var(--text-color)] font-medium">87.8%</span> in 12th grade and <span className="text-[var(--text-color)] font-medium">97.8%</span> in 10th grade.
         </p>
         <p>
-          My work spans sustainable infrastructure systems, data-driven optimization, and modern software engineering. Whether modeling resource efficiency, building predictive analytics platforms, or evaluating low-carbon environmental interventions, I prioritize long-term scalability and practical feasibility to drive strategic impact at the intersection of technology, engineering, and enterprise operations.
+          My work spans sustainable infrastructure systems, data-driven optimization and modern software engineering. Whether modeling resource efficiency, building predictive analytics platforms or evaluating low-carbon environmental interventions, I prioritize long-term scalability and practical feasibility to drive strategic impact at the intersection of technology, engineering and enterprise operations.
         </p>
       </div>
 

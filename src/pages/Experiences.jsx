@@ -21,7 +21,7 @@ export default function Experiences() {
   return (
     <div className="space-y-8 animate-fade-in">
       <h1 className="editorial-heading text-2xl font-normal text-[var(--text-muted)]">
-        Experience
+        Experiences
       </h1>
 
       <div className="space-y-8">

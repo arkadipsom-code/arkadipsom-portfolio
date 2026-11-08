@@ -43,7 +43,7 @@ export default function Navbar() {
             to="/experiences"
             className={`transition-colors ${isActive('/experiences') ? 'font-semibold text-[var(--text-color)]' : 'text-[var(--text-muted)] hover:text-[var(--text-color)]'}`}
           >
-            Experience
+            Experiences
           </Link>
           <Link
             to="/contact"

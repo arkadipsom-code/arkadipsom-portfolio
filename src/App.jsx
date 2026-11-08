@@ -36,7 +36,7 @@ export default function App() {
 
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
-    return savedTheme ? savedTheme === 'dark' : true;
+    return savedTheme ? savedTheme === 'dark' : false; // Default to light mode if no preference is saved
   });
 
   useEffect(() => {

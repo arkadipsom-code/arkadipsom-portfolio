@@ -18,11 +18,11 @@ export default function Home() {
 
   const handleSelectResume = (type) => {
     if (type === 'technical') {
-      window.open('/resume/accenture-intern-resume.pdf', '_blank');
+      window.open('/resumes/accenture-intern-resume.pdf', '_blank');
     } else if (type === 'consulting') {
-      window.open('/resume/resume-consultancy-v3.pdf', '_blank');
+      window.open('/resumes/resume-consultancy-v3.pdf', '_blank');
     } else if (type === 'civil') {
-      window.open('/resume/resume-nhai-v2.pdf', '_blank');
+      window.open('/resumes/resume-nhai-v2.pdf', '_blank');
     }
     setIsResumeModalOpen(false);
   };

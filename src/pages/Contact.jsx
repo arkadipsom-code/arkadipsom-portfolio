@@ -55,8 +55,8 @@ export default function Contact() {
           >
             {copied ? (
               <>
-                <Check size={13} className="text-emerald-500" />
-                <span className="text-emerald-500">Copied</span>
+                <Check size={13} style={{ color: '#144622' }} />
+                <span style={{ color: '#144622' }}>Copied</span>
               </>
             ) : (
               <>

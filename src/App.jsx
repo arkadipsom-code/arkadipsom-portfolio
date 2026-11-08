@@ -68,7 +68,7 @@ export default function App() {
 
   const navItems = [
     { id: 'projects', label: 'Projects' },
-    { id: 'experiences', label: 'Experience' },
+    { id: 'experiences', label: 'Experiences' },
     { id: 'contact', label: 'Contact' },
   ];
 

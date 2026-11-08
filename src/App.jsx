@@ -35,8 +35,8 @@ export default function App() {
   const [activeTab, setActiveTab] = useState(getInitialTab);
 
   const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme ? savedTheme === 'dark' : false; // Default to light mode if no preference is saved
+    const savedTheme = sessionStorage.getItem('theme');
+    return savedTheme ? savedTheme === 'dark' : false; // Default to light mode for new sessions
   });
 
   useEffect(() => {
@@ -44,11 +44,11 @@ export default function App() {
     if (darkMode) {
       root.classList.add('dark');
       root.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
+      sessionStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
       root.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
+      sessionStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
 
@@ -96,23 +96,23 @@ export default function App() {
         <div className="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto">
             <button
-  onClick={() => handleTabChange('home')}
-  className="text-left group cursor-pointer leading-none flex flex-col justify-center"
-  aria-label="Arkadip Som - Home"
->
-  <span 
-    className="text-[19px] tracking-tight font-extrabold text-[var(--text-color)] group-hover:text-green-accent transition-colors"
-    style={{ fontFamily: "'Montserrat', sans-serif" }}
-  >
-    arkadip
-  </span>
-  <span 
-    className="text-3xl sm:text-3xl font-black text-green-accent -mt-1 uppercase group-hover:opacity-90 transition-opacity"
-    style={{ fontFamily: "'Montserrat', sans-serif" }}
-  >
-    som
-  </span>
-</button>
+              onClick={() => handleTabChange('home')}
+              className="text-left group cursor-pointer leading-none flex flex-col justify-center"
+              aria-label="Arkadip Som - Home"
+            >
+              <span 
+                className="text-[19px] tracking-tight font-extrabold text-[var(--text-color)] group-hover:text-green-accent transition-colors"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                arkadip
+              </span>
+              <span 
+                className="text-3xl sm:text-3xl font-black text-green-accent -mt-1 uppercase group-hover:opacity-90 transition-opacity"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                som
+              </span>
+            </button>
 
             {/* Mobile Theme Toggle */}
             <button

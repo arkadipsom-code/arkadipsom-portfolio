@@ -4,6 +4,8 @@ import { Sun, Moon } from 'lucide-react';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Experiences from './pages/Experiences';
+import Writings from './pages/Writings';
+import WritingDetail from './pages/WritingDetail';
 import Contact from './pages/Contact';
 
 export const ArrowIcon = () => (
@@ -25,14 +27,22 @@ export const ArrowIcon = () => (
 );
 
 export default function App() {
-  const getInitialTab = () => {
+  const getInitialRouteState = () => {
     const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-    const validTabs = ['projects', 'experiences', 'contact'];
-    if (path === '' || path === 'home') return 'home';
-    return validTabs.includes(path) ? path : 'home';
+    const segments = path.split('/');
+    
+    if (segments[0] === 'writings' && segments[1]) {
+      return { tab: 'writing-detail', slug: segments[1] };
+    }
+    if (segments[0] === 'writings') return { tab: 'writings', slug: null };
+    if (segments[0] === 'projects') return { tab: 'projects', slug: null };
+    if (segments[0] === 'experiences') return { tab: 'experiences', slug: null };
+    if (segments[0] === 'contact') return { tab: 'contact', slug: null };
+    
+    return { tab: 'home', slug: null };
   };
 
-  const [activeTab, setActiveTab] = useState(getInitialTab);
+  const [routeState, setRouteState] = useState(getInitialRouteState);
 
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = sessionStorage.getItem('theme');
@@ -54,32 +64,42 @@ export default function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      setActiveTab(getInitialTab());
+      setRouteState(getInitialRouteState());
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const handleTabChange = (tabId) => {
-    setActiveTab(tabId);
+    setRouteState({ tab: tabId, slug: null });
     const targetPath = tabId === 'home' ? '/' : `/${tabId}`;
     window.history.pushState({ tab: tabId }, '', targetPath);
+  };
+
+  const handleSelectWriting = (slug) => {
+    setRouteState({ tab: 'writing-detail', slug });
+    window.history.pushState({ tab: 'writing-detail', slug }, '', `/writings/${slug}`);
   };
 
   const navItems = [
     { id: 'projects', label: 'Projects' },
     { id: 'experiences', label: 'Experiences' },
+    { id: 'writings', label: 'Writings' },
     { id: 'contact', label: 'Contact' },
   ];
 
   const renderContent = () => {
-    switch (activeTab) {
+    switch (routeState.tab) {
       case 'home':
         return <Home />;
       case 'projects':
         return <Projects />;
       case 'experiences':
         return <Experiences />;
+      case 'writings':
+        return <Writings onSelectWriting={handleSelectWriting} />;
+      case 'writing-detail':
+        return <WritingDetail slug={routeState.slug} onBack={() => handleTabChange('writings')} />;
       case 'contact':
         return <Contact />;
       default:
@@ -91,7 +111,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col justify-between w-full bg-[var(--bg-color)] text-[var(--text-color)] antialiased transition-colors duration-200">
       <Analytics />
 
-      {/* Header with deep responsive side padding (px-10 sm:px-24 md:px-32 lg:px-44) */}
+      {/* Header */}
       <header className="w-full px-10 sm:px-24 md:px-32 lg:px-44 py-3.5 sm:py-4 border-b border-[var(--border-color)]/40">
         <div className="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto">
@@ -131,7 +151,7 @@ export default function App() {
                   key={item.id}
                   onClick={() => handleTabChange(item.id)}
                   className={`transition-colors cursor-pointer relative pb-1 ${
-                    activeTab === item.id
+                    routeState.tab === item.id || (item.id === 'writings' && routeState.tab === 'writing-detail')
                       ? 'text-[var(--text-color)] font-medium border-b-2 border-[var(--accent-green)]'
                       : 'text-[var(--text-muted)] hover:text-[var(--text-color)]'
                   }`}
@@ -155,12 +175,12 @@ export default function App() {
 
       {/* Centered Main Content */}
       <main className="w-full max-w-4xl mx-auto px-6 sm:px-8 pt-6 sm:pt-8 flex-1">
-        <div key={activeTab} className="animate-fade-in">
+        <div key={routeState.tab + (routeState.slug || '')} className="animate-fade-in">
           {renderContent()}
         </div>
       </main>
 
-      {/* Footer with matching side padding */}
+      {/* Footer */}
       <footer className="w-full bg-green-footer transition-colors duration-200 mt-16 py-8">
         <div className="w-full px-10 sm:px-24 md:px-32 lg:px-44 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="opacity-90">© {new Date().getFullYear()} Arkadip Som. All rights reserved.</div>

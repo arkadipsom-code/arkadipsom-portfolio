@@ -81,21 +81,21 @@ export default function WritingDetail({ slug, onBack }) {
             );
           }
           if (block.type === 'image') {
-  return (
-    <figure key={index} className="my-6 space-y-2">
-      <img 
-        src={block.url} 
-        alt={block.caption || 'Article image'} 
-        className="w-full h-auto rounded-lg border border-[var(--border-color)]/50 shadow-sm"
-      />
-      {block.caption && (
-        <figcaption className="text-xs text-center text-[var(--text-muted)] italic pt-1">
-          {block.caption}
-        </figcaption>
-      )}
-    </figure>
-  );
-}
+            return (
+                <figure key={index} className="my-6 space-y-2">
+                <img 
+                    src={block.url} 
+                    alt={block.caption || 'Article image'} 
+                    className="w-full h-auto rounded-lg border border-[var(--border-color)]/50 shadow-sm"
+                />
+                {block.caption && (
+                    <figcaption className="text-xs text-center text-[var(--text-muted)] italic pt-1">
+                    {block.caption}
+                    </figcaption>
+                )}
+                </figure>
+            );
+        }
           if (block.type === 'video') {
             return (
               <figure key={index} className="my-6 space-y-2">

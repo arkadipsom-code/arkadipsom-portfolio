@@ -76,7 +76,7 @@ export default function Contact() {
           rel="noopener noreferrer"
           className="hover:text-[var(--text-color)] transition-colors inline-flex items-center"
         >
-          linkedin <ArrowIcon />
+          Linkedin <ArrowIcon />
         </a>
         <a
           href="https://www.instagram.com/arkadipsom"
@@ -84,7 +84,7 @@ export default function Contact() {
           rel="noopener noreferrer"
           className="hover:text-[var(--text-color)] transition-colors inline-flex items-center"
         >
-          instagram <ArrowIcon />
+          Instagram <ArrowIcon />
         </a>
         <a
           href="https://x.com/arkadip_som"
@@ -92,7 +92,7 @@ export default function Contact() {
           rel="noopener noreferrer"
           className="hover:text-[var(--text-color)] transition-colors inline-flex items-center"
         >
-          twitter / x <ArrowIcon />
+          Twitter / X <ArrowIcon />
         </a>
       </div>
 

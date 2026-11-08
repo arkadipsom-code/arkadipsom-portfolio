@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Hedvig+Letters+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Hedvig+Letters+Sans&family=Montserrat:wght@700;800;900&display=swap");
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
@@ -11,6 +11,13 @@
   --text-color: #17181a;
   --text-muted: #6e737b;
   --border-color: #e2e4e8;
+
+  /* Forest Green Theme Colors */
+  --accent-green: #144622;
+  --accent-green-hover: #0e3318;
+  --footer-bg: #144622;
+  --footer-text: #e8f5e9;
+  --footer-muted: #a3d9a5;
 }
 
 html.dark,
@@ -19,6 +26,13 @@ html.dark,
   --text-color: #f4f4f5;
   --text-muted: #8f959e;
   --border-color: #1f2226;
+
+  /* Enhanced contrast green accents for Dark Mode */
+  --accent-green: #34a853;
+  --accent-green-hover: #46c065;
+  --footer-bg: #0a1c10;
+  --footer-text: #f4f4f5;
+  --footer-muted: #7cb382;
 }
 
 @layer base {
@@ -55,6 +69,15 @@ html.dark,
     font-family: var(--font-heading);
     letter-spacing: -0.01em;
   }
+}
+
+.text-green-accent {
+  color: var(--accent-green);
+}
+
+.bg-green-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
 }
 
 @keyframes fadeIn {

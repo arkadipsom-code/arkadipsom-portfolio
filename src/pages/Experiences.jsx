@@ -19,20 +19,20 @@ const ExperienceArrowIcon = () => (
 
 export default function Experiences() {
   return (
-    <div className="space-y-12 animate-fade-in">
+    <div className="space-y-8 animate-fade-in">
       <h1 className="editorial-heading text-2xl font-normal text-[var(--text-muted)]">
         Experience
       </h1>
 
-      <div className="space-y-12">
+      <div className="space-y-8">
         {experiencesData.map((exp) => (
-          <div key={exp.id} className="space-y-3 pb-8 border-b border-[var(--border-color)]/40 last:border-b-0">
+          <div key={exp.id} className="space-y-2.5 pb-6 border-b border-[var(--border-color)]/40 last:border-b-0">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <a
                 href={exp.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="editorial-heading text-xl font-normal text-[var(--text-color)] underline underline-offset-4 decoration-[var(--border-color)] hover:decoration-[var(--text-color)] transition-colors inline-flex items-center leading-tight group"
+                className="editorial-heading text-xl font-normal text-[var(--text-color)] underline underline-offset-4 decoration-[var(--border-color)] hover:decoration-[var(--accent-green)] transition-colors inline-flex items-center leading-tight group"
               >
                 <span>{exp.company}</span>
                 <ExperienceArrowIcon />
@@ -41,10 +41,10 @@ export default function Experiences() {
             </div>
 
             <div className="text-xs text-[var(--text-muted)] font-medium">
-              {exp.role} • {exp.location}
+              {exp.role} {exp.location && `• ${exp.location}`}
             </div>
 
-            <p className="text-sm text-[var(--text-muted)] leading-relaxed pt-1">
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed pt-0.5">
               {exp.description}
             </p>
           </div>

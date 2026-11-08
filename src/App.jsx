@@ -91,16 +91,28 @@ export default function App() {
     <div className="min-h-screen flex flex-col justify-between w-full bg-[var(--bg-color)] text-[var(--text-color)] antialiased transition-colors duration-200">
       <Analytics />
 
-      <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 py-8 sm:py-12 flex-1 flex flex-col">
-        {/* Mobile-optimized Header Layout */}
-        <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-10 border-b border-[var(--border-color)]/40">
+      {/* Header with deep responsive side padding (px-10 sm:px-24 md:px-32 lg:px-44) */}
+      <header className="w-full px-10 sm:px-24 md:px-32 lg:px-44 py-6 sm:py-8 border-b border-[var(--border-color)]/40">
+        <div className="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto">
             <button
-              onClick={() => handleTabChange('home')}
-              className="editorial-heading text-xl sm:text-2xl font-normal hover:opacity-80 transition-opacity cursor-pointer text-[var(--text-color)]"
-            >
-              Arkadip Som
-            </button>
+  onClick={() => handleTabChange('home')}
+  className="text-left group cursor-pointer leading-none flex flex-col justify-center"
+  aria-label="Arkadip Som - Home"
+>
+  <span 
+    className="text-[19px] tracking-tight font-extrabold text-[var(--text-color)] group-hover:text-green-accent transition-colors"
+    style={{ fontFamily: "'Montserrat', sans-serif" }}
+  >
+    arkadip
+  </span>
+  <span 
+    className="text-3xl sm:text-3xl font-black text-green-accent -mt-1 uppercase group-hover:opacity-90 transition-opacity"
+    style={{ fontFamily: "'Montserrat', sans-serif" }}
+  >
+    som
+  </span>
+</button>
 
             {/* Mobile Theme Toggle */}
             <button
@@ -120,7 +132,7 @@ export default function App() {
                   onClick={() => handleTabChange(item.id)}
                   className={`transition-colors cursor-pointer relative pb-1 ${
                     activeTab === item.id
-                      ? 'text-[var(--text-color)] font-medium border-b border-[var(--text-color)]'
+                      ? 'text-[var(--text-color)] font-medium border-b-2 border-[var(--accent-green)]'
                       : 'text-[var(--text-muted)] hover:text-[var(--text-color)]'
                   }`}
                 >
@@ -138,25 +150,31 @@ export default function App() {
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* Dynamic Main Content */}
-        <main className="w-full flex-1 pt-10">
-          <div key={activeTab} className="animate-fade-in">
-            {renderContent()}
-          </div>
-        </main>
+      {/* Centered Main Content */}
+      <main className="w-full max-w-4xl mx-auto px-6 sm:px-8 pt-6 sm:pt-8 flex-1">
+        <div key={activeTab} className="animate-fade-in">
+          {renderContent()}
+        </div>
+      </main>
 
-        {/* Footer */}
-        <footer className="w-full border-t border-[var(--border-color)]/40 pt-8 mt-20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
-          <div>© {new Date().getFullYear()} Arkadip Som. All rights reserved.</div>
+      {/* Footer with matching side padding */}
+      <footer className="w-full bg-green-footer transition-colors duration-200 mt-16 py-8">
+        <div className="w-full px-10 sm:px-24 md:px-32 lg:px-44 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <div className="opacity-90">© {new Date().getFullYear()} Arkadip Som. All rights reserved.</div>
           <div className="flex items-center gap-6">
-            <a href="mailto:arkadipsom@gmail.com" className="hover:text-[var(--text-color)] transition-colors">Email</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-color)] transition-colors inline-flex items-center">LinkedIn <ArrowIcon /></a>
-            <a href="https://github.com/arkadipsom-code" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-color)] transition-colors inline-flex items-center">GitHub <ArrowIcon /></a>
+            <a href="mailto:arkadipsom@gmail.com" className="hover:underline transition-all">Email</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline transition-all inline-flex items-center">
+              LinkedIn <ArrowIcon />
+            </a>
+            <a href="https://github.com/arkadipsom-code" target="_blank" rel="noopener noreferrer" className="hover:underline transition-all inline-flex items-center">
+              GitHub <ArrowIcon />
+            </a>
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 }

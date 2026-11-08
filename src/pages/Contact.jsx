@@ -30,14 +30,14 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-4 animate-fade-in space-y-10">
+    <div className="animate-fade-in space-y-8">
       <div className="text-base sm:text-lg text-[var(--text-color)] leading-relaxed max-w-2xl">
         Reach out directly via{' '}
         <a
           href="mailto:arkadipsom@gmail.com"
-          className="font-semibold underline underline-offset-4 decoration-[var(--border-color)] hover:decoration-[var(--text-color)] transition-colors"
+          className="font-semibold underline underline-offset-4 decoration-[var(--border-color)] hover:decoration-[var(--accent-green)] transition-colors"
         >
-        arkadipsom@gmail.com
+          arkadipsom@gmail.com
         </a>{' '}
         or connect across social platforms:
       </div>
@@ -69,46 +69,46 @@ export default function Contact() {
         </a>
       </div>
 
-      {/* Formspree Contact Form matching Image 4 */}
-      <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl pt-2">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="space-y-2">
+      {/* Formspree Contact Form with Green Theme Details */}
+      <form onSubmit={handleSubmit} className="space-y-5 max-w-2xl pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="space-y-1.5">
             <label className="text-xs text-[var(--text-muted)] font-medium">Name</label>
             <input
               type="text"
               name="name"
               required
               placeholder="Your Name"
-              className="w-full px-4 py-3 rounded-lg border border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--text-color)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--text-color)] transition-colors"
+              className="w-full px-4 py-2.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--text-color)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-green)] transition-colors text-sm"
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <label className="text-xs text-[var(--text-muted)] font-medium">Email</label>
             <input
               type="email"
               name="email"
               required
               placeholder="your@email.com"
-              className="w-full px-4 py-3 rounded-lg border border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--text-color)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--text-color)] transition-colors"
+              className="w-full px-4 py-2.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--text-color)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-green)] transition-colors text-sm"
             />
           </div>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           <label className="text-xs text-[var(--text-muted)] font-medium">Message</label>
           <textarea
             name="message"
             required
-            rows={5}
+            rows={4}
             placeholder="Write your note here..."
-            className="w-full px-4 py-3 rounded-lg border border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--text-color)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--text-color)] transition-colors resize-none"
+            className="w-full px-4 py-2.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--text-color)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-green)] transition-colors resize-none text-sm"
           />
         </div>
 
         <button
           type="submit"
-          className="px-6 py-3 bg-[var(--text-color)] text-[var(--bg-color)] font-medium rounded-lg text-sm hover:opacity-90 transition-opacity cursor-pointer"
+          className="px-6 py-2.5 bg-[var(--accent-green)] text-white font-medium rounded-lg text-sm hover:opacity-90 transition-opacity cursor-pointer"
         >
           Send Message
         </button>

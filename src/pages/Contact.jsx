@@ -55,8 +55,8 @@ export default function Contact() {
           >
             {copied ? (
               <>
-                <Check size={13} style={{ color: '#144622' }} />
-                <span style={{ color: '#144622' }}>Copied</span>
+                <Check size={13} className="text-[var(--accent-green)]" />
+                <span className="text-[var(--accent-green)]">Copied</span>
               </>
             ) : (
               <>
@@ -76,7 +76,7 @@ export default function Contact() {
           rel="noopener noreferrer"
           className="hover:text-[var(--text-color)] transition-colors inline-flex items-center"
         >
-          Linkedin <ArrowIcon />
+          linkedin <ArrowIcon />
         </a>
         <a
           href="https://www.instagram.com/arkadipsom"
@@ -84,7 +84,7 @@ export default function Contact() {
           rel="noopener noreferrer"
           className="hover:text-[var(--text-color)] transition-colors inline-flex items-center"
         >
-          Instagram <ArrowIcon />
+          instagram <ArrowIcon />
         </a>
         <a
           href="https://x.com/arkadip_som"
@@ -92,7 +92,7 @@ export default function Contact() {
           rel="noopener noreferrer"
           className="hover:text-[var(--text-color)] transition-colors inline-flex items-center"
         >
-          Twitter / X <ArrowIcon />
+          twitter / x <ArrowIcon />
         </a>
       </div>
 
@@ -141,7 +141,7 @@ export default function Contact() {
         </button>
 
         {status === 'SUCCESS' && (
-          <p className="text-xs text-emerald-500">Thank you! Your message has been sent successfully.</p>
+          <p className="text-xs text-[var(--accent-green)]">Thank you! Your message has been sent successfully.</p>
         )}
         {status === 'ERROR' && (
           <p className="text-xs text-rose-500">Something went wrong. Please try emailing directly.</p>

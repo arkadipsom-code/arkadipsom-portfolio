@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
+import { Copy, Check } from 'lucide-react';
 import { ArrowIcon } from '../App';
 
 export default function Contact() {
   const [status, setStatus] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('arkadipsom@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,15 +39,34 @@ export default function Contact() {
 
   return (
     <div className="animate-fade-in space-y-8">
-      <div className="text-base sm:text-lg text-[var(--text-color)] leading-relaxed max-w-2xl">
-        Reach out directly via{' '}
-        <a
-          href="mailto:arkadipsom@gmail.com"
-          className="font-semibold underline underline-offset-4 decoration-[var(--border-color)] hover:decoration-[var(--accent-green)] transition-colors"
-        >
-          arkadipsom@gmail.com
-        </a>{' '}
-        or connect across social platforms:
+      <div className="text-base sm:text-lg text-[var(--text-color)] leading-relaxed max-w-2xl flex flex-wrap items-center gap-2">
+        <span>Reach out directly via</span>
+        <div className="inline-flex items-center gap-2">
+          <a
+            href="mailto:arkadipsom@gmail.com"
+            className="font-semibold underline underline-offset-4 decoration-[var(--border-color)] hover:decoration-[var(--accent-green)] transition-colors"
+          >
+            arkadipsom@gmail.com
+          </a>
+          <button
+            onClick={handleCopyEmail}
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-md border border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--text-color)] hover:border-[var(--accent-green)] transition-all cursor-pointer"
+            title="Copy email address"
+          >
+            {copied ? (
+              <>
+                <Check size={13} className="text-emerald-500" />
+                <span className="text-emerald-500">Copied</span>
+              </>
+            ) : (
+              <>
+                <Copy size={13} className="text-[var(--text-muted)]" />
+                <span>Copy</span>
+              </>
+            )}
+          </button>
+        </div>
+        <span>or connect across social platforms:</span>
       </div>
 
       <div className="flex items-center gap-6 text-sm text-[var(--text-muted)] pb-6 border-b border-[var(--border-color)]/40">

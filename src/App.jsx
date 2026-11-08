@@ -92,7 +92,7 @@ export default function App() {
       <Analytics />
 
       {/* Header with deep responsive side padding (px-10 sm:px-24 md:px-32 lg:px-44) */}
-      <header className="w-full px-10 sm:px-24 md:px-32 lg:px-44 py-6 sm:py-8 border-b border-[var(--border-color)]/40">
+      <header className="w-full px-10 sm:px-24 md:px-32 lg:px-44 py-3.5 sm:py-4 border-b border-[var(--border-color)]/40">
         <div className="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto">
             <button

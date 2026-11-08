@@ -166,7 +166,7 @@ export default function App() {
           <div className="opacity-90">© {new Date().getFullYear()} Arkadip Som. All rights reserved.</div>
           <div className="flex items-center gap-6">
             <a href="mailto:arkadipsom@gmail.com" className="hover:underline transition-all">Email</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline transition-all inline-flex items-center">
+            <a href="https://linkedin.com/in/arkadip-som" target="_blank" rel="noopener noreferrer" className="hover:underline transition-all inline-flex items-center">
               LinkedIn <ArrowIcon />
             </a>
             <a href="https://github.com/arkadipsom-code" target="_blank" rel="noopener noreferrer" className="hover:underline transition-all inline-flex items-center">

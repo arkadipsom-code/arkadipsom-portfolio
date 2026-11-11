@@ -4,7 +4,7 @@
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --font-heading: "Hedvig Letters Sans", serif;
+  --font-heading: "Hedvig Letters Sans", sans-serif;
   --font-body: "Geist", -apple-system, sans-serif;
 
   --bg-color: #fafafa;
@@ -36,12 +36,6 @@ html.dark,
 }
 
 @layer base {
-  *,
-  ::before,
-  ::after {
-    font-family: var(--font-body);
-  }
-  html,
   body,
   #root {
     margin: 0;
@@ -58,17 +52,18 @@ html.dark,
       color 0.2s ease;
     -webkit-font-smoothing: antialiased;
   }
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .editorial-heading {
-    font-family: var(--font-heading);
-    letter-spacing: -0.01em;
-  }
+/* Force heading font family on elements and classes */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.editorial-heading {
+  font-family: var(--font-heading) !important;
+  letter-spacing: -0.01em;
 }
 
 .text-green-accent {
